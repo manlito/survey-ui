@@ -1,0 +1,293 @@
+@import "../ui/base/BaseUIStyleSheet.less";
+@import "./icons.less";
+
+.ORRespondant {
+
+    .ORSurveyContainer {
+        height: 100%;
+        position: relative;
+
+        div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, em, img, small,
+        strike, strong, sub, sup, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label,
+        legend, table, caption, tbody, tfoot, thead, tr, th, td, embed, time, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            vertical-align: baseline;
+            list-style-type: none;
+        }
+
+        li {
+            background-image: none;
+        }
+
+        &.Desktop {
+            .ORFooter {
+                text-align: right;
+                font-size: 0.8em;
+                height: 1em;
+                line-height: 1em;
+                padding: 4px 6px;
+                margin: 0;
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+                a,
+                a:visited,
+                a:active {
+                    opacity: 0.3;
+                }
+                a:hover {
+                    opacity: 0.5;
+                }
+            }
+            .ORHeader {
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+        .ORShow {
+            opacity: 1;
+        }
+        .ORHide {
+            opacity: 0;
+        }
+        .OREndSpacer {
+            height: 1000px;
+        }
+        .ORMain {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        &.ORInactive {
+            display: table;
+            width: 100%;
+            .Message {
+                color: #222;
+                text-shadow: 0px 2px 3px #555;
+                font-size: 48px;
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+        b {
+            font-weight: bolder;
+        }
+        .ORItemContainer {
+            padding: 0.5em;
+            &.Matrix, &.Group {
+                padding-left: 0;
+                padding-right: 0;
+            }
+            &.Active {
+                background-color: #E8E8E8;
+            }
+            &.Right {
+                .ORLabel {
+                    float: left;
+                    width: 30%;
+                    padding-top: 5px;
+                }
+                .ORGeneric {
+                    float: right;
+                    width: 67%;
+                }
+            }
+            &.Label {
+                .ORLabel {
+                    float: none;
+                    width: auto;
+                }
+            }
+            &.NoLabel {
+                .ORLabel {
+                    display: none;
+                }
+                .ORGeneric {
+                    display: block;
+                }
+            }
+            &.Left {
+                .ORLabel {
+                    float: right;
+                    width: 65%;
+                }
+                .ORGeneric {
+                    float: right;
+                    width: 30%;
+                }
+            }
+            .ORLabel {
+                padding-bottom: 5px;
+            }
+            &.Closing {
+                padding: 1.5em;
+            }
+        }
+        .ORItemContainer.Horizontal {
+            .UiItem {
+                .ORInput {
+                    .uiRadioChoice {
+                        .Options {
+                            ul {
+                                li {
+                                    float: left;
+                                    padding-right: 10px;
+                                    .CellLabel {
+                                        .Legend {
+                                            text-align: center;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .ORClearFloat {
+            clear: both;
+        }
+        .ORTable {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+            td {
+                padding: 0;
+                margin: 0;
+                .ORItemContainer {
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+            }
+            &.ORMatrixTable td {
+                border-bottom: 1px solid #ddd;
+                vertical-align:middle;
+            }
+        }
+        .ORSurveyTitle {
+            font-size: 1.2em;
+            padding-bottom: 1em;
+        }
+        .WithAutoScroll {
+            .ORContent {
+                overflow-y: hidden;
+            }
+        }
+        i {
+            font-style: italic;
+        }
+        .ORContent {
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            position: absolute;
+            text-align: left;
+            .ORCommandButton {
+                text-align: center;
+                padding-top: 1em;
+                button {
+                    font-size: 1.2em;
+                }
+            }
+            .ORSurveyItem {
+                padding-bottom: 1em;
+            }
+        }
+        u {
+            text-decoration: underline;
+        }
+        .ORBlock {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        ol,
+        ul {
+            list-style: none;
+        }
+    }
+
+    .Animated {
+        transition-timing-function: ease;
+        &.ORAnimateResize {
+            transition-property: height;
+        }
+        .ORContent {
+            transition-property: margin-top;
+        }
+        .ORShow {
+            transition-property: opacity;
+        }
+        .ORHide {
+            transition-property: opacity;
+        }
+    }
+
+    .ORLayoutLeft,
+    .ORLayoutRight {
+        vertical-align: middle;
+        cursor: pointer;
+        text-align: center;
+        font-size: 50px;
+        &:hover {
+            background-color: #f7f7f7;
+            vertical-align: middle;
+            -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
+            transition: border .25s linear, color .25s linear, background-color .25s linear;
+        }
+    }
+
+    /* For the notify mini component used to display messages to the respondant */
+    .border-radius (@radius) {
+        -moz-border-radius: @radius;
+        -webkit-border-radius: @radius;
+        border-radius: @radius;
+    }
+
+    .ORNotify {
+    position: absolute;
+    display: block;
+    width: 200px;
+    top: 0;
+    right: 0;
+    background-color: #666666;
+    .border-radius(10px);
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 18px;
+    &.ORError {
+        background-color: #990000;
+        .ORNotifyMessage .ORNotifyClose:hover {
+            background-color: #BB0000;
+        }
+    }
+
+    &.ORSuccess {
+        background-color: #009900;
+        .ORNotifyMessage .ORNotifyClose:hover {
+            background-color: #00BB00;
+        }
+    }
+
+    .ORNotifyMessage {
+        padding: 8px 20px 8px 8px;
+
+        .ORNotifyClose {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        padding: 3px;
+        .border-radius(4px);
+        cursor: pointer;
+        &:hover {
+            background-color: #999999;
+        }
+        }
+    }
+    }
+
+}

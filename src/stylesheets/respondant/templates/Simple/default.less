@@ -1,0 +1,30 @@
+/**
+ *
+ * This template is indeed based on the default at stylesheets/respondant/respondant.less
+ * For that, it's intentionally left blank
+ *
+ **/
+
+.ORSimpleContainer {
+	display: table;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+
+	.ORLayoutLeft,
+	.ORLayoutCenter,
+	.ORLayoutRight {
+		display: table-cell;
+		height: 100%;
+	}
+	.ORLayoutLeft,
+	.ORLayoutRight {
+		width: 15%;
+	}
+	.ORLeftIcon:before {
+		content: "\e000";
+	}
+	.ORRightIcon:before {
+		content: "\e001";
+	}
+}

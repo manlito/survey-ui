@@ -1,0 +1,23 @@
+{
+  "name": "survey-ui",
+  "version": "1.0.0",
+  "description": "UI components for surveys",
+  "main": "dist/survey-editor",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "less-user": "lessc src/stylesheets/3rd-party/bootstrap/less/bootstrap.less src/stylesheets/3rd-party/bootstrap/less/bootstrap.css && lessc src/stylesheets/ui/base/BaseUIStyleSheet.less src/stylesheets/ui/base/BaseUIStyleSheet.css && lessc src/stylesheets/ui/user/UserUIStyleSheet.less src/stylesheets/ui/user/UserUIStyleSheet.css && lessc src/stylesheets/editor/SurveyEditorStyleSheet.less src/stylesheets/editor/SurveyEditorStyleSheet.css && lessc src/stylesheets/respondant/templates/Simple/default.less src/stylesheets/respondant/templates/Simple/default.css && lessc src/stylesheets/respondant/respondant.less src/stylesheets/respondant/respondant.css && lessc src/stylesheets/respondant/templates/Simple/default.less src/stylesheets/respondant/templates/Simple/default.css && lessc src/stylesheets/respondant/templates/ButtonLess/default.less src/stylesheets/respondant/templates/ButtonLess/default.css && lessc src/stylesheets/respondant/templates/Slim/default.less src/stylesheets/respondant/templates/Slim/default.css && lessc src/stylesheets/respondant/themes/Black/default.less src/stylesheets/respondant/themes/Black/default.css && lessc src/stylesheets/respondant/themes/Gray/default.less src/stylesheets/respondant/themes/Gray/default.css && lessc src/stylesheets/respondant/themes/Red/default.less src/stylesheets/respondant/themes/Red/default.css"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/runtime": "^7.15.4",
+    "copy-webpack-plugin": "^9.0.1",
+    "less": "^4.1.1",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-merge-and-include-globally": "^2.3.4"
+  },
+  "dependencies": {
+  }
+}

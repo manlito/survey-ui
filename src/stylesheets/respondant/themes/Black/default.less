@@ -1,0 +1,34 @@
+.ORSurveyContainer {
+    .ORMain {
+      .ORContent {
+        .ORItemContainer {
+          color: #000000;
+		  &.ORInvisible {
+			color: #555555;
+		  }
+          .Option:hover {
+            background-color: #cccccc;
+          }
+          &.Active {
+            background-color: #000000;
+            color: #ffffff;
+            .Option:hover {
+              background-color: #ffffff;
+              color: #000000;
+            }
+          }          
+        }
+      }
+    }
+    .ORLayoutLeft, .ORLayoutRight {
+      color: #000000;
+      &:hover {
+        background-color: #000000;
+        color: #ffffff;
+      }
+    }
+    .ORContent {
+        .ORSurveyItem {
+        }
+    }
+}

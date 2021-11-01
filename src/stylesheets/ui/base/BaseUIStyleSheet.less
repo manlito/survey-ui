@@ -1,0 +1,949 @@
+@import "../../common.less";
+
+.ORRespondant {
+
+    .ORFontIcon {
+        color:  #c3c3c3;
+    }
+
+    .Selected .ORFontIcon,
+    li:hover .ORFontIcon {
+        color: #797979;
+    }
+
+    .InputItem .ORInput input,
+    .TextAreaItem .ORInput textarea {
+        width: 100%;
+        margin: 0;
+        color: @font-color;
+        font-style: normal;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .Horizontal .uiMultiOption .Options li.Option {
+        margin-right: 15px;
+    }
+    .uiMultiOption {
+        .Options {
+            .OptionContent {
+                display: table;
+                width: 100%;
+                border-collapse: 0;
+                padding: 0;
+                margin: 0;
+                .CellClose {
+                    display: table-cell;
+                    vertical-align: top;
+                    width: 20px;
+                    padding: 0;
+                    margin: 0;
+                }
+                .CellAddOther {
+                    display: table-cell;
+                    width: 150px;
+                    vertical-align: top;
+                    padding: 0;
+                    margin: 0;
+                }
+                .CellLabel {
+                    display: table-cell;
+                    vertical-align: middle;
+                    padding: 0;
+                    padding-left: 4px;
+                    margin: 0;
+                }
+            }
+            .OptionCommands {
+                text-align: center;
+                padding: 0;
+                padding-bottom: 0.5em;
+                margin: 0;
+                clear: both;
+                a.Cancel {
+                    div {
+                        background-position: -1px -362px;
+                    }
+                }
+                a {
+                    -moz-border-radius: 0.4em;
+                    -webkit-border-radius: 0.4em;
+                    border-radius: 0.4em;
+                    border-color: #ccc;
+                    border-width: 0px;
+                    border-style: solid;
+                    background-color: #ddd;
+                    padding: 0.2em;
+                    margin: 0;
+                    color: #444;
+                    display: inline-block;
+                    text-decoration: none;
+                    height: 23px;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: #aaa;
+                        color: #fff;
+                    }
+                    div {
+                        width: 18px;
+                        height: 20px;
+                        background-size: 13px 13px;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        font-size: 14px;
+                        line-height: 16px;
+                        text-decoration: none;
+                    }
+                }
+                a.SortDesc {
+                    div {
+                        background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNzkyIiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB3aWR0aD0iMTc5MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTI1NSAxNDMyaDE3N2wtNzItMjE4LTEyLTQ3cS0yLTE2LTItMjBoLTRsLTMgMjBxMCAxLTMuNSAxOHQtNy41IDI5em0tNDU1IDhxMCAxMi0xMCAyNGwtMzE5IDMxOXEtMTAgOS0yMyA5LTEyIDAtMjMtOWwtMzIwLTMyMHEtMTUtMTYtNy0zNSA4LTIwIDMwLTIwaDE5MnYtMTM3NnEwLTE0IDktMjN0MjMtOWgxOTJxMTQgMCAyMyA5dDkgMjN2MTM3NmgxOTJxMTQgMCAyMyA5dDkgMjN6bTkyNSAyNDZ2MTA2aC0yODh2LTEwNmg3NWwtNDctMTQ0aC0yNDNsLTQ3IDE0NGg3NXYxMDZoLTI4N3YtMTA2aDcwbDIzMC02NjJoMTYybDIzMCA2NjJoNzB6bS04OS0xMTUxdjIzM2gtNTg0di05MGwzNjktNTI5cTEyLTE4IDIxLTI3bDExLTl2LTNxLTIgMC02LjUuNXQtNy41LjVxLTEyIDMtMzAgM2gtMjMydjExNWgtMTIwdi0yMjloNTY3djg5bC0zNjkgNTMwcS02IDgtMjEgMjZsLTExIDEwdjNsMTQtM3E5LTEgMzAtMWgyNDh2LTExOWgxMjF6Ii8+PC9zdmc+');
+                    }
+                }
+                a.Add {
+                    div {
+                        width: auto;
+                        background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iMzJweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMyIDMyOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMzIgMzIiIHdpZHRoPSIzMnB4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNMjgsMTRIMThWNGMwLTEuMTA0LTAuODk2LTItMi0ycy0yLDAuODk2LTIsMnYxMEg0Yy0xLjEwNCwwLTIsMC44OTYtMiwyczAuODk2LDIsMiwyaDEwdjEwYzAsMS4xMDQsMC44OTYsMiwyLDIgIHMyLTAuODk2LDItMlYxOGgxMGMxLjEwNCwwLDItMC44OTYsMi0yUzI5LjEwNCwxNCwyOCwxNHoiLz48L3N2Zz4=');
+                        background-position-x: 0.1em;
+                        background-position-y: center;
+                        padding-left: 1.5em;
+                        padding-top: 0.1em;
+                        font-weight: bold;
+                    }
+                }
+                a.SortAsc {
+                    div {
+                        background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNzkyIiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB3aWR0aD0iMTc5MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTI1NSA0MDhoMTc3bC03Mi0yMTgtMTItNDdxLTItMTYtMi0yMGgtNGwtMyAyMHEwIDEtMy41IDE4dC03LjUgMjl6bS00NTUgMTAzMnEwIDEyLTEwIDI0bC0zMTkgMzE5cS0xMCA5LTIzIDktMTIgMC0yMy05bC0zMjAtMzIwcS0xNS0xNi03LTM1IDgtMjAgMzAtMjBoMTkydi0xMzc2cTAtMTQgOS0yM3QyMy05aDE5MnExNCAwIDIzIDl0OSAyM3YxMzc2aDE5MnExNCAwIDIzIDl0OSAyM3ptODM2IDExOXYyMzNoLTU4NHYtOTBsMzY5LTUyOXExMi0xOCAyMS0yN2wxMS05di0zcS0yIDAtNi41LjV0LTcuNS41cS0xMiAzLTMwIDNoLTIzMnYxMTVoLTEyMHYtMjI5aDU2N3Y4OWwtMzY5IDUzMHEtNiA4LTIxIDI2bC0xMSAxMXYybDE0LTJxOS0yIDMwLTJoMjQ4di0xMTloMTIxem04OS04OTd2MTA2aC0yODh2LTEwNmg3NWwtNDctMTQ0aC0yNDNsLTQ3IDE0NGg3NXYxMDZoLTI4N3YtMTA2aDcwbDIzMC02NjJoMTYybDIzMCA2NjJoNzB6Ii8+PC9zdmc+');
+                    }
+                }
+            }
+            .Option.Header {
+                .OptionContent {
+                    .CellClose {
+                        display: none;
+                    }
+                }
+            }
+            ul,
+            li {
+                list-style: none;
+                margin: 0px;
+                padding: 0;
+                cursor: default;
+                font-weight: normal;
+            }
+            li {
+                .Close {
+                    width: 21px;
+                    height: 21px;
+                    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNTEycHgiIGlkPSJMYXllcl8xIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNNDM3LjUsMzg2LjZMMzA2LjksMjU2bDEzMC42LTEzMC42YzE0LjEtMTQuMSwxNC4xLTM2LjgsMC01MC45Yy0xNC4xLTE0LjEtMzYuOC0xNC4xLTUwLjksMEwyNTYsMjA1LjFMMTI1LjQsNzQuNSAgYy0xNC4xLTE0LjEtMzYuOC0xNC4xLTUwLjksMGMtMTQuMSwxNC4xLTE0LjEsMzYuOCwwLDUwLjlMMjA1LjEsMjU2TDc0LjUsMzg2LjZjLTE0LjEsMTQuMS0xNC4xLDM2LjgsMCw1MC45ICBjMTQuMSwxNC4xLDM2LjgsMTQuMSw1MC45LDBMMjU2LDMwNi45bDEzMC42LDEzMC42YzE0LjEsMTQuMSwzNi44LDE0LjEsNTAuOSwwQzQ1MS41LDQyMy40LDQ1MS41LDQwMC42LDQzNy41LDM4Ni42eiIvPjwvc3ZnPg==');
+                    background-size: 16px 16px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    border: 0;
+                    cursor: pointer;
+                    -moz-border-radius: 0.4em;
+                    -webkit-border-radius: 0.4em;
+                    border-radius: 0.4em;
+                }
+                .Close:hover {
+                    background-color: #aaa;
+                }
+            }
+            .Option.Other {
+                .OtherInput {
+                    display: table-cell;
+                    width: 50%;
+                    .ORInput {
+                        width: 40%;
+                    }
+                    .Label {
+                        height: 24px;
+                        line-height: 24px;
+                        font-size: 14px;
+                        margin-right: 5px;
+                    }
+                }
+            }
+            li.Option {
+                padding: 5px;
+            }
+            li.Option:hover {
+                -moz-border-radius: 0.4em;
+                -webkit-border-radius: 0.4em;
+                border-radius: 0.4em;
+                border-color: #fff;
+                border-width: 0px;
+                border-style: solid;
+                background-color: #CCCCCC;
+            }
+        }
+    }
+    .InputItem .ORInput input:focus, .TextAreaItem .ORInput textarea:focus {
+    }
+    .InputItem.Maximum .ORInput, .TextAreaItem.Maximum .ORInput, .TextEditor.Maximum .ORInput {
+        width: 100%;
+    }
+    .InputItem {
+        .ORInput {
+            float: left;
+        }
+    }
+    .LightShadow {
+        -moz-box-shadow: 0px 0px 2px 2px #999;
+        -webkit-box-shadow: 0px 0px 2px 2px #999;
+        box-shadow: 0px 0px 2px 2px #999;
+    }
+    .ToolTip {
+        background-color: #990000;
+        display: none;
+        position: absolute;
+        min-width: 120px;
+        max-width: 250px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        -moz-box-shadow: 0 0 2px 2px #999;
+        -webkit-box-shadow: 0 0 2px 2px #999;
+        box-shadow: 0 0 2px 2px #999;
+        z-index: 500;
+        .TipContent {
+            color: #FFFFFF;
+            font-size: 14px;
+            padding: 6px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            border-color: #FFFFFF;
+            border-style: solid;
+            border-width: 0px;
+        }
+    }
+    .InputItem .ORInput input.HasValue,
+    .TextAreaItem .ORInput textarea.HasValue,
+    .InputItem .ORInput input:focus,
+    .TextAreaItem .ORInput textarea:focus {
+        color: inherit;
+        font-style: inherit;
+    }
+    .TextAreaItem.HLarge {
+        .ORInput {
+            height: 175px;
+        }
+    }
+    .TextAreaItem.HSmall {
+        .ORInput {
+            height: 50px;
+        }
+    }
+    .hover {
+        -moz-box-shadow: 2px 2px 2px #aaa;
+        -webkit-box-shadow: 2px 2px 2px #aaa;
+        box-shadow: 2px 2px 2px #aaa;
+    }
+    .UIElement {
+        .selected {
+            background-color: #900;
+            background-image: linear-gradient(bottom, rgb(153,0,0) 15%, rgb(199,86,86) 66%);
+            background-image: -o-linear-gradient(bottom, rgb(153,0,0) 15%, rgb(199,86,86) 66%);
+            background-image: -moz-linear-gradient(bottom, rgb(153,0,0) 15%, rgb(199,86,86) 66%);
+            background-image: -webkit-linear-gradient(bottom, rgb(153,0,0) 15%, rgb(199,86,86) 66%);
+            background-image: -ms-linear-gradient(bottom, rgb(153,0,0) 15%, rgb(199,86,86) 66%);
+            background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, rgb(153,0,0)),color-stop(0.66, rgb(199,86,86)));
+        }
+    }
+    .LargeShadow {
+        -moz-box-shadow: 0px 0px 40px 40px #333;
+        -webkit-box-shadow: 0px 0px 40px 40px #333;
+        box-shadow: 0px 0px 40px 40px #333;
+    }
+    .DateTimeSelector {
+        .DateTime {
+            .TimeField {
+                width: 30%;
+            }
+            .DateField {
+                width: 50%;
+            }
+        }
+        .SettingsDialog {
+            .SelectorItem {
+                position: absolute;
+            }
+        }
+    }
+    .InputItem.Small .ORInput,
+    .TextAreaItem.Small .ORInput,
+    .TextEditor.Small .ORInput {
+        width: 25%;
+    }
+
+    .Spinner {
+        td {
+            padding: 0;
+            height: 1.5em;
+        }
+        .ORInput {
+            float: left;
+            font-size: 14px;
+
+            .toolbar-button;
+
+            .Field {
+                div.Selected {
+                    height: 100%;
+                }
+                div {
+                    height: 100%;
+                }
+            }
+            .More {
+                div {
+                    &:before {
+                        /** Dropdown arrow **/
+                        content: "\e00d";
+                        color: @base-color;
+                        font-size: 1.25em;
+                    }
+                }
+            }
+            .Less {
+                div {
+                    &:before {
+                        /** Dropdown arrow **/
+                        content: "\e00e";
+                        color: @base-color;
+                        font-size: 1.25em;
+                    }
+                }
+            }
+            table {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                border: 0;
+                border-collapse: collapse;
+            }
+            input:focus {
+                border-color: #990000;
+                outline: none;
+            }
+            input {
+                text-align: center;
+                -moz-border-radius: 0;
+                -webkit-border-radius: 0;
+                border-radius: 0;
+                border: 0;
+                background-color: transparent;
+                height: 100%;
+                width: 100%;
+                padding: 0;
+                line-height: 100%;
+            }
+        }
+        .ORInput .Less div,
+        .ORInput .More div {
+            height: 100%;
+            cursor: pointer;
+            padding-top: 0.1em;
+        }
+        .ORInput .Less,
+        .ORInput .More {
+            width: 1.5em;
+            color: @base-color;
+            font-weight: bold;
+            text-align: center;
+        }
+        .ORInput .Less div:hover.Icon:before ,
+        .ORInput .More div:hover.Icon:before  {
+            color: @base-color-light;
+            .transition-hover();
+        }
+    }
+    .uiMultiOption.uiCellCheckGroup .Options .OptionContent .CellCheckGroup,.uiMultiOption.uiCellCheckGroup .Options .OptionContent .CellHeadings {
+        display: table-cell;
+        width: 60%;
+        vertical-align: middle;
+        padding: 0;
+        margin: 0;
+        tr {
+            background: none;
+        }
+    }
+    .Rounded3px {
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        border-width: 1px;
+        border-color: #990000;
+    }
+
+    .SoftShadow {
+        -moz-box-shadow: 0px 0px 2px 2px #333;
+        -webkit-box-shadow: 0px 0px 2px 2px #333;
+        box-shadow: 0px 0px 2px 2px #333;
+    }
+    .uiCellCheckGroup {
+        .Options {
+            li.Option.Header {
+                table {
+                    table-layout: fixed;
+                    border-collapse: collapse;
+                    td {
+                        text-align: center;
+                        padding: 0;
+                    }
+                }
+                .HeadingLeft {
+                    text-align: left;
+                }
+                .HeadingCenter {
+                    text-align: center;
+                }
+                .HeadingRight {
+                    text-align: right;
+                }
+            }
+        }
+        .Option.Content {
+            table {
+                td {
+                    cursor: pointer;
+                }
+                td:hover {
+                    background-color: #BBBBBB;
+                }
+            }
+            .CellCheckGroup .CellCheck {
+                width: 100%;
+                text-align: center;
+                display: block;
+                height: 18px;
+                .CheckMark {
+                line-height: 18px;
+                }
+            }
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            height: 21px;
+            td {
+                vertical-align: middle;
+                text-align: center;
+            }
+        }
+    }
+    .ItemContainer.Horizontal {
+        .UIElement {
+            .UiItem {
+                .ORInput {
+                    .uiRadioChoice {
+                        .Options {
+                            ul {
+                                li {
+                                    float: left;
+                                    margin-bottom: 5px;
+                                    .CellLabel {
+                                        .Legend {
+                                            text-align: center;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .SelectorItem li.Special,.SelectorItem li.Special:hover {
+        background: inherit;
+        cursor: default;
+        padding: 0;
+    }
+    .uiRadioChoice {
+        .Options {
+            ul {
+                padding-bottom: 5px;
+                margin: 0;
+                li {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    cursor: default;
+                    .CellLabel.RadioMediaElement {
+                        border: 1px dashed #999999;
+                        .CommandBar {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+                        .VideoPreview {
+                            padding-top: 4px;
+                        }
+                        .Legend {
+                            border-top: 1px dashed #999999;
+                            padding: 4px;
+                        }
+                    }
+                    .CellLabel.RadioVideoElement {
+                        .VideoInput {
+                            .InputItem {
+                                .ORInput {
+                                    width: 270px;
+                                }
+                                .Label {
+                                    padding: 0.2em 0.6em 0.2em 0.2em;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .OptionContent {
+                .CellCheck {
+                    display: table-cell;
+                    width: 16px;
+                    vertical-align: middle;
+                    text-align: center;
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+            .Option {
+                .CheckMark:before {
+                    /** Radio Choice Off **/
+                    content: "\e006";
+                }
+                &.Selected,
+                .CellCheck.Selected {
+                    .CheckMark:before {
+                        /** Radio Choice On **/
+                        content: "\e007";
+                    }
+                }
+            }
+        }
+    }
+    .uiRadioChoice.uiBinary .Options ul li,
+    .uiRadioChoice.uiRadio .Options ul li,
+    .uiRadioChoice.uiList .Options ul li {
+        cursor: pointer;
+    }
+    .uiBinary {
+        .Options .Option .Legend {
+            display: table-row;
+        }
+        .Options .Option .Legend .Icon {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .Options .Option .Legend .IconText {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .Options.IconLess {
+            .Icon {
+                display: none;
+            }
+        }
+        .Icon {
+            padding: 0 5px 0 0;
+        }
+        &.uiBinaryGender {
+            .Icon.OptionFemale:before {
+                content: "\e00b";
+                color: fuchsia;
+            }
+            .Icon.OptionMale:before {
+                content: "\e00a";
+                color: blue;
+            }
+        }
+        &.uiBinaryYesNo,
+        &.uiBinaryTrueFalse {
+            .Icon.OptionYes:before,
+            .Icon.OptionTrue:before, {
+                content: "\e009";
+                color: blue;
+            }
+        }
+        &.uiBinaryYesNo,
+        &.uiBinaryTrueFalse {
+            .Icon.OptionNo:before,
+            .Icon.OptionFalse:before {
+                content: "\e008";
+                color: red;
+            }
+        }
+    }
+    .LabelItem {
+        .Label {
+            height: auto;
+            width: auto;
+            float: none;
+        }
+    }
+    .Rounded5px {
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+    .uiMultiOption.uiCellCheckGroup {
+        .Options {
+            li.Option.Header {
+                background-color: inherit;
+                font-weight: bolder;
+            }
+            li.Option.Header:hover {
+                background-color: inherit;
+            }
+        }
+    }
+
+    #Console {
+        position: fixed;
+        margin: 0;
+        top: 50px;
+        right: 0;
+        width: 270px;
+        padding: 15px;
+        border: 3px solid @baseColor;
+        background-color: #FFFFFF;
+        .border-left-radius(10px);
+        opacity: 0.5;
+        transition: opacity 0.2s, width 0.2s;
+        &:hover {
+        opacity: 1;
+        width: 500px;
+        transition: opacity 0.1s, width 0.1s;
+        }
+        .ConsoleArea {
+            overflow-y: scroll;
+            height: 500px;
+            margin: 10px 0;
+        }
+        .Commands {
+            position: absolute;
+            bottom: 1em;
+            left: 1em;
+            a {
+                -moz-border-radius: 0.4em;
+                -webkit-border-radius: 0.4em;
+                border-radius: 0.4em;
+                border-color: #fff;
+                border-width: 0px;
+                border-style: solid;
+                background-color: #888;
+                padding: 0.3em;
+                color: #fff;
+                display: inline-block;
+                text-decoration: none;
+                height: 1.2em;
+                font-weight: bold;
+                display: inline;
+            }
+        }
+        .TextArea {
+            background-color: #FFFFFF;
+            border: 0;
+        }
+    }
+    .UiItem.BooleanItem {
+        .Checkbox {
+            padding: 0.2em 0.35em;
+            -moz-border-radius: 0.5em;
+            -webkit-border-radius: 0.5em;
+            border-radius: 0.5em;
+            cursor: pointer;
+            line-height: 1em;
+            float: left;
+        }
+        .Label {
+            float: none;
+            margin: 0;
+            padding: 0 0 0 0.5em;
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 0.9em;
+            height: 1em;
+            line-height: 1em;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .BoxMark {
+            line-height: 1em;
+            border: 1px solid #CCCCCC;
+            padding: 0;
+            margin-top: 0;
+            -moz-border-radius: 0.3em;
+            -webkit-border-radius: 0.3em;
+            border-radius: 0.3em;
+            display: table-cell;
+            .CheckMark {
+                height: 16px;
+                width: 16px;
+                padding: 0;
+                margin: 0;
+                border: 0;
+                background-image: none;
+            }
+        }
+        .BoxMark.Selected {
+            border-color: #990000;
+            .CheckMark  {
+                // assets/tick-red.png
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAwFBMVEUAAACYAACYAACTAACmAACIAADFPDygFRWnDg6nCgqYBgaqEBCpAACNAAB0AACXAADIQED5cXH4b2/oX1/WTEzxaGjdUVHQPT3KMDDBGRm1DQ3WRETFMTGdCQmzHh6ZBASjAACHAACCAABfAACDAQGnAACHAACjAACNAACSAACgAACXAACcAAB1AABhAABhAAB1AACpAACFAAClAACKAACPAACiAAC/ERH/d3fqYmLaUlLMJiayFBTMERGxERGkERGqbmpZAAAAN3RSTlMASczMSUj+/fbp3dbMzMhr/v38/Pv6+fj29O/s5eTd08zMzMy7sK6enoyFe2NISDgpHxsQEAgGgkbYWQAAAHZJREFUGNNjIAkY8rCg8I1VLVBEzNSlLYUUkAS0ZKxEuMEqGJkYgSS/nAAbtw6ELwgUYZRnZ+fSBitlFmUTZuZn5rDn0oToZeUVsxHn5bCT1TBlgIooSphbm3OqmcDNZ1WStJVSMUKyUZePk88AxZF6yvrE+xAATRYIodkOkMQAAAAASUVORK5CYII=');
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+        .Checkbox:hover {
+            background-color: #fceded;
+        }
+    }
+    .InputItem.Medium .ORInput, .TextAreaItem.Medium .ORInput, .TextEditor.Medium .ORInput {
+        width: 50%;
+    }
+    .TabContainer {
+        overflow: visible;
+        height: 100%;
+        .Tabs {
+            padding: 1.5em 1em;
+            text-align: center;
+            a.Selected {
+                background-color: #990000;
+                color: #FFFFFF;
+            }
+            a.Tab {
+                font-size: 1.3em;
+                background-color: #CCCCCC;
+                margin-right: 1em;
+                padding: 0.4em 1em;
+                -moz-border-radius: 1em;
+                -webkit-border-radius: 1em;
+                border-radius: 1em;
+            }
+        }
+        .Contents {
+            padding: 0;
+            margin: 0;
+            border: 0;
+            position: relative;
+            .Content {
+                display: none;
+                position: absolute;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                border: 0;
+            }
+        }
+    }
+    .uiListCheck .Options .OptionCommands, .uiListCheck .Options .Option .CellClose .Close {
+        display: none;
+    }
+    .Rounded8px {
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+    }
+    .TextAreaItem.HMedium {
+        .ORInput {
+            height: 100px;
+        }
+    }
+    .uiDropDown {
+        position: relative;
+        -moz-border-radius: 0.4em;
+        -webkit-border-radius: 0.4em;
+        border-radius: 0.4em;
+        -moz-box-shadow: 2px 2px 2px #dddddd;
+        -webkit-box-shadow: 2px 2px 2px #dddddd;
+        box-shadow: 2px 2px 2px #dddddd;
+        float: left;
+        background-color: #888888 !important;
+        background-image: linear-gradient(bottom, rgb(69,68,69) 23%, rgb(171,171,171) 78%);
+        background-image: -o-linear-gradient(bottom, rgb(69,68,69) 23%, rgb(171,171,171) 78%);
+        background-image: -moz-linear-gradient(bottom, rgb(69,68,69) 23%, rgb(171,171,171) 78%);
+        background-image: -webkit-linear-gradient(bottom, rgb(69,68,69) 23%, rgb(171,171,171) 78%);
+        background-image: -ms-linear-gradient(bottom, rgb(69,68,69) 23%, rgb(171,171,171) 78%);
+        background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.23, rgb(69,68,69)),color-stop(0.78, rgb(171,171,171)));
+        color: #ffffff;
+        font-weight: bold;
+        cursor: pointer;
+        .Options {
+            position: absolute;
+            background-color: #f8f8f8;
+            right: 0;
+            color: #666;
+            -moz-border-radius: 0.4em;
+            -webkit-border-radius: 0.4em;
+            border-radius: 0.4em;
+            border-color: #ccc;
+            border-width: 1px;
+            border-style: solid;
+            min-width: 16em;
+            display: none;
+            z-index: 20;
+            ul {
+                padding: 5px;
+                margin: 0;
+            }
+            input[type=text].value {
+                width: 20%;
+            }
+            input[type=text].label {
+                width: 70%;
+            }
+        }
+        .arrow {
+            float: left;
+            padding-top: 0.35em;
+            padding-right: 0.45em;
+            &:before {
+                content: "\e00c";
+            }
+        }
+        .text {
+            float: left;
+            padding: 0.3em 0.6em;
+            min-width: 8em;
+            line-height: 1.2em;
+        }
+    }
+    .uiBinary.uiBinaryYesNo .Icon.OptionNo, .uiBinary.uiBinaryTrueFalse .Icon.OptionFalse {
+        background-position: 0 -238px;
+    }
+    .NonSelectable {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .NoHeadings {
+        .uiCellCheckGroup {
+            .Options {
+                li.Option.Header {
+                    display: none;
+                }
+            }
+        }
+    }
+    .InputShadow {
+        -moz-box-shadow: 0px 0px 1px 1px #999;
+        -webkit-box-shadow: 0px 0px 1px 1px #999;
+        box-shadow: 0px 0px 1px 1px #999;
+    }
+    .UiItem {
+        .Suffix {
+            overflow: hidden;
+            float: left;
+            padding: 0;
+            padding-left: 0.5em;
+        }
+        .Label {
+            overflow: hidden;
+            float: left;
+            padding: 0em;
+            height: 1.5em;
+            line-height: 1.5em;
+        }
+        .Option {
+            .CheckMark {
+                padding-right: 5px;
+            }
+        }
+    }
+    .uiRadioChoice.uiList {
+        .Option {
+            .CheckMark:before {
+                /** Checkbox Off **/
+                content: "\e004";
+            }
+            &.Selected {
+                .CheckMark:before {
+                    /** Checkbox On **/
+                    content: "\e005";
+                }
+            }
+        }
+    }
+    .SelectorItem ul, .SelectorItem ul li {
+        padding: 0px;
+        margin: 0px;
+        border-collapse: collapse;
+        list-style: none;
+    }
+    .TextAreaItem {
+        .ORInput {
+            textarea {
+                height: 97%;
+            }
+        }
+    }
+    .uiRadioChoice .Options ul li .CellLabel.RadioMediaElement .UploadedImage, .uiRadioChoice .Options ul li .CellLabel.RadioMediaElement .VideoPreview {
+        position: relative;
+        display: none;
+        min-height: 25px;
+    }
+    .TextEditor {
+        .ORInput.Selected {
+            .EditorToolbar {
+                border-top-color: #444444;
+                border-left-color: #444444;
+                border-right-color: #444444;
+            }
+            .EditorArea {
+                border-bottom-color: #444444;
+                border-left-color: #444444;
+                border-right-color: #444444;
+            }
+        }
+        .ORInput {
+            float: left;
+            .EditorToolbar {
+                -moz-border-radius-topleft: 8px;
+                -webkit-border-top-left-radius: 8px;
+                border-top-left-radius: 8px;
+                -moz-border-radius-topright: 8px;
+                -webkit-border-top-right-radius: 8px;
+                border-top-right-radius: 8px;
+                border-color: #999999;
+                border-width: 2px 2px 1px 2px;
+            }
+            .nicEdit-main:focus {
+                outline: none;
+            }
+            .nicEdit-main {
+                width: 100%;
+            }
+            textarea {
+                width: 100%;
+            }
+            .EditorArea {
+                -moz-border-radius-bottomleft: 8px;
+                -webkit-border-bottom-left-radius: 8px;
+                border-bottom-left-radius: 8px;
+                -moz-border-radius-bottomright: 8px;
+                -webkit-border-bottom-right-radius: 8px;
+                border-bottom-right-radius: 8px;
+                border-color: #999999;
+                border-width: 2px;
+                font-size: 12px;
+            }
+        }
+    }
+    .InputItem.Large .ORInput, .TextAreaItem.Large .ORInput, .TextEditor.Large .ORInput {
+        width: 75%;
+    }
+    .uiRadioChoice .Options ul li .CellLabel.RadioMediaElement .Image, .uiRadioChoice .Options ul li .CellLabel.RadioMediaElement .Video {
+        padding: 4px;
+        min-width: 100px;
+    }
+
+}

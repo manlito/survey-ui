@@ -1,0 +1,1016 @@
+@import "../../common.less";
+
+.RenderedItem {
+  .uiMultiOption {
+    .Options {
+      .Option.Header {
+        .OptionContent {
+          .CellClose {
+            display: table-cell;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Edit this to change the height of the settings modal dialog */
+#SettingsTabs {
+    height: 420px;
+    overflow: hidden;
+}
+
+#TitleAndMessagesPane {
+    #SurveyTitle {
+        top: 20px;
+        left: 35px;
+    }
+    #SurveyIntro {
+        top: 3.5em;
+        left: 35px;
+        .ORInput {
+            .EditorArea {
+                height: 100px;
+            }
+        }
+    }
+    #SurveyClosing {
+        top: 13.4em;
+        left: 35px;
+        .ORInput {
+            .EditorArea {
+                height: 80px;
+            }
+        }
+    }
+}
+
+#DeliveryPane {
+    .UiItem {
+        width: 21em;
+        left: 1em;
+        .ORInput {
+            width: 7em;
+        }
+        .Label {
+            width: 8em;
+            font-size: 0.9em;
+        }
+    }
+    .Publication {
+        position: relative;
+		top: 1em;
+        left: 2em;
+        #PublicationLabel {
+            left: 0em;
+            font-size: 1.1em;
+        }
+        #StartDeliveryOn {
+            top: 2em;
+        }
+        #EndDeliveryOn {
+            top: 4em;
+        }
+        #StatusSelector {
+            top: 6em;
+            left: 1em;
+            .DropDownContainer {
+                width: 15em;
+            }
+        }
+        .LabelItem {
+            left: 0;
+        }
+        .ORInput {
+            width: 10em;
+        }
+        .UiItem {
+            left: 1em;
+        }
+    }
+
+    .Objectives {
+        position: relative;
+        display: none;
+		top: 8em;
+        left: 24em;
+        #DeliveryStrategy {
+            .ORInput {
+                width: 11em;
+            }
+        }
+        #ObjectivesLabel {
+            left: 0;
+            font-size: 1.1em;
+        }
+        #DeliveryStrategy {
+            top: 6em;
+        }
+        #MaxResponsesTotal {
+            top: 4em;
+        }
+        #MaxResponsesPerDay {
+            top: 2em;
+            .Label {
+              font-size: 0.9em;
+            }
+        }
+    }
+
+    .Appearance {
+        position: relative;
+		top: 8em;
+        left: 24em;
+        #AppearanceLabel {
+            left: 0;
+            font-size: 1.1em;
+        }
+        #SurveyTemplate {
+            top: 2em;
+            .ORInput {
+                width: 9em;
+                .DropDownContainer {
+                    .DropDownOptions {
+                        max-height: 150px;
+                    }
+                }
+            }
+            .Template {
+                border: 3px solid @font-color-highlight-strong;
+                .border-radius(5px);
+                padding: 0;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 250px;
+                height: 152px;
+                &.Slim {
+                    background-image: url('data:image/webp;base64,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');
+                }
+                &.Simple {
+                    background-image: url('data:image/webp;base64,UklGRkQQAABXRUJQVlA4IDgQAAAwSQCdASr6AJoAPjEWikOiISESOGU4IAMEtLdwuJsgD/HapPYhk5B70PB7+g3/5dPzbjvQ5/j+li9Sbov/VI/3XSAf//gQvN3+A7TP6b+MXZP+OvXvzivGX0B/j/Q3+XfYb8j/Zfcf/Tf4rwr+Ev7h6gX4t/IP8F/St/bs36BfqV8s/vP50f2z5M/kP736I/VH/H/mR/ZPsA/jP9A/zf5vf3X50/0/938WHtf++fcB9gH8l/mn99/tP+G/5/98+PT/H/wf+X/dH2xfPf+8/wH+O/aT7BP4//Q/93/cf8t73nr4/bb2JP1a+/UmpnfcL2MC5UuvzfFeVHsnhOm9PL9/4M2I257bx2F1kr8S6BV2VXP547Z2EaFhqZ26UJdBArWfv9/I41CLFJaL+4p7x+apJ8Y4iCN2su6SNEN+zdlMnA30u6afvby1OitL8cCy+Wvkdk5SGXs0/JUPKmVnO9K9qUsqVHVn+eBSzAowfVFivIeW6oZWM1j8aRXmZi2Ma/798ppzSa527bH90QYd/1OgfbLWIhf3ao5OUjISNxnYPnDIHkrgGH1BD67IGQYjIZsAPlFNu7gN6wCJ0CYFIX6grAM37Q3/jzSELO826gsO1SHYYoOUdsc5IvIU/Tsz3aJ83eO+QtINPRQXPjn6sBmswMqyktClbPOTv7l8YcqKEd1lM8G2I1fzODCvhfFfHIxfPXUqITzaQMGWAWTnSaBXNW+UIq/GyNkfwHnHMjcPOBbymiYOufrJM4ogVCYGmdvtYyY//y439spF/qIxsm4n4wAA/v+93VoRwfEy8OITDfulfos6rsviiiiJ1ZWm+MNs/mQhOsMtoxp8cuH2n2ner1pBUusc7WVjA63RebEIygYvNim+rprvBOSFR879wf1yTNC8KLn5s6bptw+CnhKkYt7RQyYAAIi1le0WgP0idNQ4fAdQgM2ofblkDGrbvpJZrvs/Fi4/0bEW9hAtg0dtCJi/0q9+b6gfezwG4UniSlaL9PkD3C2BKORAHnw8MJZ5Z/VtnILh4Qs9qf9EMBYBKtOiSHcjGLbQ8br6G24/oucca3Y1opStJmJCE2Y245JfO84O0EWRfTjnoD1ZiOq6WcUaUKO8eYfF07bXSlEYCwAuY24jDA0H3FLByBtFhJUYGS52cBeA0jJo89rbAUYp5WaQDTmCwZxCVQbG9zPeRyMCHmVsxnDZ50dfvmELPAAuXAKqalTK+3cIjH2Ph15Nd9ISswN/lClx3Vy22Fzah0Z6um/yJ5L42+TIkYRwlyaF7+PLAr5cyeEjE8l3uFTgEk1AVJ0caWJeyWgADOJu6bR4CqZdRG1I/iUbPg/aHbz3p6iyjee/37z/+3v8ND936Sh6b9/7EF8/P/H20rh7cQ19xbVqtsfAyDczFkINykxl4BJpez/pqACSPI4HBpXE2PfEpVGMR2KayKSR8DZ4RPVXiBvviEn+17Zh6PhMtg5lRjvv20lZB5iDWBpgxXID4W2rnh/oo8cDzeKHeaP51ailqK80xeS6VTumKjT75oFSA0A7xUMoO6lgkQjLjBRBVcxRTwXPEPpGWPmkD/U0G4yC0H4cEb5C2cfJ4fW5AjDqDS4/9aDtnOSrNIJ3NbfwfsNnv7Mv0E1DgWg+SLzkywt+KbeKhWPVO9w9qMouP4VQZwubOscmz/5peQfT7h4iQiQGteRPT3bviEteGJh0MFigYJQmzyUUkJdhN81MozHEeFCIXzZnb4vX8fEa5FC6bw2XhFPt6A0NF5Nb+fmfTQABGbwQqAslaqRAH06NDF2TyOajTzi2A+I11UOoozgI1NYZElMsZGfir++ODXiLWTI1cOnwMZ+Xf9jLWKHTbTR3/Y2pZKnne/Opy/cCUMdRjP8uRymNakAZ5GwrL0tHUWbcvRD+u5RZMFeK4knUIPrfOTaGjnVvtHPJx8inoinIHU7Te0Lc4sQElaW5uuzHpnYpAWyuBAzSqxAPKcAFxQAEeFWSkN9ImBcnKw10kjaQy2Em3q66Wx+9onjtMM/ximG08RsfSAiQqrDS3RzHz7ZfCRFCkL/aCpgLFsP3MzGEdiimR5qEfiEYXvpnfnW1ipMdunNIOwYhC/lL+XkvmGzkyX2Wlbb/bqzy8EvGMRkuaXkk8PgN/T2H/m20ZovqbWaVSlqWbHlz5LHZPVfo0PyIVsVu/H5nxBB80wRx6gZSZzz+LsWSVV/o5mFUZ9BY32JBGABUAGmQ2XtJIpAkpAWv7Ow0DwNC75Fr/VrhyYW8lJ4K5xypOT8TwgP4dnF9Ev28Jb5MtEnu0lTupb3kKW5m3wtKveJ90gSLtG5Kn8B/2H9RZWV4eEqMPSt8EB+tw0GLTblPdQxc0dHVtqpPqOCuatZavdpCAIwTHGfX6g3gZYXfvLB0uEfjxuA9q7sNaza8qMgLPowV2uVdmcCt7+6LycNLx79ELU4d/LMcE9EJm/vMB+xtRMDI/uKO00IKiZVliC+BDQ1XX3ytQJkyWlNyygF0svzoVgbojpNGrPKlshrAGn/BX8syWnL0cWBXxlD0zReQQh0TFrjuIDsHsuhhNETVsOAoOjhR2C4B+k57qIr/qYrxmHb1omIRiq07FcL+CSEQv35XKVhVIxuwV7T2MgW4SOrOVu3nRrB1DW+xmCiWs+HqyZ8+ZY3X3PM72stV+NebAdQRtfmcKhMncbT5OzCZCn+hbWFgPpPY1OVaeO/DWf9HC9LomYowSn5pbwgbv1X+4zh8DM1cSRv/8kYqKg4NZH2IOQyNTNeRvDALIcmG2rKkqWpZ6Fjbv2gA6BDcwyoplxlVHx1Pg6jnRsX7GO8AiyGnUZYW5mAoN09S9PYBsEXT9v7cFMywW1MARt06cdtJDl3YNMjsA4Cli0MlZ+N0jI4pVN3jrom2lalaz9FIPqoUGvLp0qf1zl4xBNQc7hZFS1wh50Vdfn1MtmuMR8Hjqo/QTNh1lGYNDG2wsQ6Y0ZVxiqe/71QiZr7ymAx4dg2dYqr7xMJc0dPiqijWMAng/fkeMBmG0vayNu4rqvqshoeC4+GDJgpahPwt0OxbASUyo33F+7EN6RM03ez35SCMxIbGYHLBnY0ADXOWNuxZIe+YjnX+l6eD0vPtsilFHa0yG/s8IyioRqoexabJw9+Nh7x18FgP7rB3d864+bZa/JIzW3TAJmzOD1bc5KROdv2JC6jTfx7rjW2LC7r2CPM4TGshFmYqla7GZxRfABAALxiv46YOcvuxSwyD45hh8TLSsE6dNyybtC8Z/UQ1mVgbi6CN3U/Sy5q1LP++OQ/PAdcEOF36vtb16+vskgaH3kCWyjUa5lW78TPUxVkVx/5+bxIAvDFaiAKqfulSaCIUh75FvB4tLPGGXPIC4RLadBiYUClE669yqokdcD8qLiAWVxroKGGtk5pSZWp7ZXsM1w4tPeiUvEnFDsKNGBbLelfZOLQC9pL9nImk/PgJ3liqxx90vZfz6uE4BLRvuqKR83OAMpTbbcdjQDIHy7idaF/57iXZ1tp3K9lh3xk+XNxa+ZbNBifogvxPl/7oPYJ+PTvyLSy/jyN5nXkneEyCYTwaV3QWYyAD0kfSlzXnoOG3imqJmwXExeDxcuYpMfFTPmihJf0iJ0vcWeNOGV0HEMCeiXSbZtvR4XUmHyz/qOb+s3lmJj7jV6wxpgsGrs8iKPieLrTYV05Zi9APRR/XZuBpeNLrooresOb74Wb22W2ut3s6iMfS4xdOOI58B+yNu3aOcmmvHBunZkPVlXHtL1Ya+n4Jz3Zpxk/OA6LaZSDlLuUq6nIha8tTxifqD/u0oJ42sOxpydz1N7FH0C5RDNFxGpJ/FCZ9pWh1HqIfR3AeryUP+/03nOaOPphB+SCSbt/42DfwDoLVxr9MYtatLUw7mzibNlw+mUN9XPsQUyn0jmsBmD9wODGPqtV/DeUgFWhwPT/lLvGUptoSlPlFfmRvNQhmMH+HHgWCJaDh1kOmJUAAAAJcRjbOF0SAR3w/QEG7LKWXId+jz5X8NSmo62+59Oer+Qeb+kmqeJk7JLFKphqiiS4/QtUZJgS8YCfm1RvZN3DNCWgzwU9fB5QGTzc+u3CmE6XJB1MQ+7Ma/iiR919nDwoF8JrKs8OIvBF1ncBiZmCxLZBUOU8vbbVl9sPpx2lVt87nO3G1vtbkRfPbDLavgOfK8VNIppEP4cxbpqLmupugCV3UUqrUF/eFaq6PkGU2csi4QR94mlnsO8aqEzOQooSrtbljOp7K1n9VowVJii3S1ojKWjqd+xCy6xLvmb3kIsynN33835JaspdqfM256HKKxrGXT6/aWDWimfTgSfL6x7YHhKC+3/VR0Y2R+aS/KK1FrIsb+QKNmBDLCCn26AKVOZF3n2FZoFC+nIbulL4EY3AHMh6p6nksjo36X+EC5S6B2hXbWJO5OVb1rbqN/BA8yGawj3bwUTQAPt3clLzqntMqfsqPn7eJ6USKOZF6UN7zY/n18kcZ3LrqEeYK4MloypaapiTzA+YrsdYRoxRHL+qcS60bKazYkXxV0N+14RAdaLIFoEVX7X3MzFRu+E/GX/NFHNARWRVTLToODizPB/IHIV/KtQozp0woxye2tRZpyNFTyMERmxHxJJeS7jl9RNOmIAilZRDwIIuGfJL22tYpd+JBfCWrHj7hHau5Ke3YTeFUFXBGAtcZEpFFqeuw3MbOyF9lF2Z6meo++nsP2fD/hEO1YsvLc9PqrVFzEwvG1UEjOfzU7vCqV/vIowOZ6N+9XRx1L1NLWGvBDLj+U9L7I4lBSq9fcTBVTAZDIaH78W8Ik/PvUGc3wOpbWhPDptVwHyUlmg6xB6OTdHlxkxkFpfKASEjxzFVTOZOdPrZ2WVm/eOoH7kINohb+xTIYkRgGYgWGo5uUUXlFDvPZLEQU9xmVQiTprAd2JLz7HN4qwHN9ZgTjU4Kvb36tyb4/t6YdnyRJbSGrIrJ5x0jHbpVJfwCZkb/whkAvGK+wRWqByNBXteOnyboULRqsd3uGKHrkYnuD6IFyGbWusZgv0pky8rGw0xvMGcHT2iDXiP6NCnis5VSmlUPijytwp6T3krzOmykNgj0Z2/7SF3Qd1sOTPdtenRhtw7hlanafxW1zi3LF+9lQZqg7+8161wEWMG1niNGRBgO8KVXzrTFomQ1gLB90L26Wd7t8fDk0gQjx2njByjAZqR5ifT62RDPGHMUeG80p77TdzEnIpn41QBDQ00af7tkm+5apSyznG8Y3UG3ACakg86g5MyQU26m4UejeSTh2u0o2YIrfFDXMTh0ck6g+EdZzkSwk3H5ZEM0EaeP+5hTHwu9IMR1v16roQWUzHTr9wseYvVqbmTULAkjmsQ5ASzNg0ZtS8n8unDbAhQwUDgF0wdBWgWT6Qf0LMAjP5hBHanhsHu6Ebe2yH2ITser7mAi1YSDU7Tk3MEkSQ+418AxJcDvDOReRXrZQheal2O1GBeUg2/FseY21SSk4iNWJlwPVtdTbL7CQdDCyKdH2aU5tHlMLq72nd3WkeflkzKgehyFGU9h0AAA=');
+                }
+                &.ButtonLess {
+                    background-image: url('data:image/webp;base64,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');
+                }
+            }
+        }
+        #SurveyTheme{
+            top: 4em;
+            .ORInput {
+                width: 9em;
+            }
+            .ThemeLabel {
+                width: 140px;
+            }
+            .Theme {
+                width: 50px;
+                height: 20px;
+                margin-right: 10px;
+                float: left;
+                .border-radius(5px);
+                border: 1px solid #ffffff;
+                &.Gray {
+                    background-color: #cccccc;
+                }
+                &.Black {
+                    background-color: #000000;
+                }
+                &.Red {
+                    background-color: #990000;
+                }
+            }
+        }
+    }
+
+    .Navigation {
+        position: relative;
+        //top: 11em;
+		top: 1em;
+        left: 24em;
+        .UiItem {
+            left: 1em;
+        }
+        #NavigationLabel {
+			left: 0;
+            font-size: 1.1em;
+        }
+        #ScrollingMode {
+            top: 2em;
+            .Label {
+              width: 8m;
+            }
+            .ORInput {
+                width: 9em;
+                .DropDownContainer {
+					width: 18em;
+					.DropDownOptions {
+						max-height: 110px;
+					}
+                }
+            }
+        }
+        #SmartScrollingVisibleItems {
+            top: 4em;
+            .Label {
+              width: 8em;
+            }
+            .ORInput {
+                width: 5em;
+            }
+        }
+    }
+
+    .Serving {
+        position: relative;
+        top: 11em;
+        left: 35px;
+        .UiItem {
+            left: 0.25em;
+        }
+        #ServingLabel {
+            top: 0;
+            left: 0;
+            font-size: 1.1em;
+        }
+        #EnableOptionRandomize {
+            top: 3.8em;
+        }
+        #ShowHiddenItemsAsDisabled {
+            top: 5.6em;
+        }
+        #TimeLimitLabel {
+            top: 11.1em;
+            left: 1em;
+        }
+        #MaxResponsesPerDay .Suffix,
+        #MaxResponsesTotal .Suffix {
+          width: 6em;
+        }
+        #EnableItemRandomize {
+            top: 2em;
+        }
+        #OtherDeliverySettingsLabel {
+            top: 6.3em;
+            .Label {
+                font-weight: normal;
+                width: 10em;
+            }
+        }
+        #GlobalTimeLimit {
+            top: 13em;
+            width: 30em;
+        }
+        #GlobalTimeLimit .ORInput,
+        #PerItemTimeLimit .ORInput {
+            width: 10em;
+        }
+        #TimeLimitLabel {
+            .Label {
+                font-weight: normal;
+                width: 20em;
+            }
+        }
+    }
+}
+
+#AccessPane {
+    position: relative;
+    left: 2em;
+    top: 1em;
+    .EmbeddingControl {
+        position: relative;
+        top: 8em;
+        #EmbeddingControlLabel {
+            left: 0;
+            .Label {
+                width: 10em;
+            }
+        }
+        #AllowAdditionalEmbedDomainsList {
+            top: 5em;
+            left: 3em;
+            .Suffix {
+                display: block;
+                float: none;
+                font-size: 0.8em;
+                padding: 0.5em;
+                width: 100%;
+            }
+            .ORInput {
+                width: 16em;
+                height: 3em;
+                textarea {
+                    font-size: 0.8em;
+                }
+            }
+        }
+        #AllowAdditionalEmbedDomains {
+            top: 3em;
+        }
+        #OnlyEmbedFromMyDomains {
+            top: 1.5em;
+        }
+        .UiItem {
+            left: 1em;
+        }
+    }
+    .UserValidation {
+        left: 22em;
+        position: relative;
+        #RequireAccessCode {
+            top: 3em;
+        }
+        #VerifyThroughEmailDomainsList {
+            top: 8em;
+            left: 3em;
+            .Suffix {
+                display: block;
+                float: none;
+                font-size: 0.8em;
+                padding: 0.5em;
+                width: 100%;
+            }
+            .ORInput {
+                width: 16em;
+                height: 5em;
+                textarea {
+                    font-size: 0.8em;
+                }
+            }
+        }
+        #UserValidationLabel {
+            left: 0;
+            .Label {
+                width: 10em;
+            }
+        }
+        #EnableCaptcha {
+            top: 1.5em;
+        }
+        #VerifyThroughEmailDomains {
+            top: 6em;
+            left: 2em;
+        }
+        #VerifyThroughEmail {
+            top: 4.5em;
+        }
+    }
+    .UserControl {
+      #MaximumResponsesPerUser {
+          top: 4.7em;
+          .Suffix {
+              float: left;
+              width: auto;
+          }
+          .ORInput {
+              width: 7em;
+          }
+          .Label {
+              float: left;
+              width: auto;
+              padding-right: 0.5em;
+              font-size: 0.9em;
+          }
+      }
+      #AllowSurveyPause {
+          top: 1.5em;
+      }
+      #UserControlLabel {
+          left: 0;
+          .Label {
+              width: 10em;
+          }
+      }
+      #EnableSurveyPreview {
+          top: 3em;
+      }
+    }
+    .UiItem {
+        left: 1em;
+        .ORInput {
+            width: 15em;
+        }
+        .Label {
+            width: 5em;
+        }
+    }
+}
+
+#Properties {
+    #RequiredItem {
+        top: 2.8em;
+        left: 14.5em;
+    }
+    #EnableBinaryIcon {
+        top: 4.9em;
+        left: 16.5em;
+    }
+    #DisplayRulesSelector {
+        top: 2.8em;
+        left: 0.5em;
+    }
+    #HasOther {
+        top: 4.9em;
+        left: 14.5em;
+    }
+    #LayoutSelector {
+        top: 0.7em;
+        left: 0.5em;
+    }
+    #SizeSelector,
+    #OrientationSelector,
+    #HeaderStyleSelector {
+        top: 0.7em;
+        left: 14.5em;
+    }
+    #EnableMultiSelect {
+        top: 4.9em;
+        left: 14em;
+    }
+    #NumberOfValues {
+        .ORInput {
+            width: 5.5em;
+        }
+    }
+    #TextValidator,
+    #NumberOfValues {
+        top: 4.9em;
+        left: 0.5em;
+        &.Spinner input {
+			margin: 0;
+        }
+    }
+    #OrientationSelector .ORInput,
+    #SizeSelector .ORInput,
+    #HeaderStyleSelector .ORInput {
+        width: 9em;
+    }
+    .UiItem {
+        position: absolute;
+        .ORInput {
+            width: 9em;
+        }
+        .Label {
+            width: 4.5em;
+            font-size: 1em;
+        }
+    }
+}
+
+.SelectorItem {
+    ul {
+        padding: 0px;
+        margin: 0px;
+        border-collapse: collapse;
+        list-style: none;
+        min-width: 100px;
+        li {
+            padding: 6px !important;
+            margin: 0;
+            cursor: pointer;
+        }
+        li:hover {
+            background-color: @base-color;
+            color: @base-inverse-color;
+        }
+    }
+    .DropDownOptions.Scrollable {
+        overflow-y: scroll;
+        max-height: 200px;
+    }
+    .DropDownContainer {
+        border-color: #dddddd;
+        border-style: solid;
+        border-width: 1px;
+        position: absolute;
+        right: -4px;
+        margin-top: 4px;
+        background-color: #FFFFFF;
+        display: none;
+        z-index: 20;
+        cursor: default;
+        top: 1.5em;
+        -moz-border-radius: 0.3em;
+        -webkit-border-radius: 0.3em;
+        border-radius: 0.3em;
+        font-size: 0.9em;
+    }
+    .Selector {
+        .toolbar-button;
+        &:hover {
+            .DropDownArrow.Icon:before {
+                color: @base-color-light;
+            }
+        }
+        .DropDownArrow {
+            &:before {
+                /** Dropdown arrow **/
+                content: "\e00c";
+                color: @base-color;
+                font-size: 1.25em;
+            }
+            padding-top: 0.12em;
+            height: 1.5em;
+            -moz-border-radius-topright: 0.3em;
+            -webkit-border-top-right-radius: 0.3em;
+            border-top-right-radius: 0.3em;
+            -moz-border-radius-bottomright: 0.3em;
+            -webkit-border-bottom-right-radius: 0.3em;
+            border-bottom-right-radius: 0.3em;
+            border-color: #990000;
+            border-width: 0px;
+            border-style: solid;
+        }
+        .DropDownArrowCell {
+            width: 1.5em;
+        }
+        .SelectedItem {
+            padding-left: 0.5em;
+            line-height: 1.5em;
+            height: 1.5em;
+        }
+    }
+    table {
+        td {
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+    }
+    .ORInput {
+        float: left;
+        position: relative;
+        table {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            border-collapse: collapse;
+            cursor: pointer;
+        }
+    }
+}
+
+.DateTimeSelector {
+    .DateTime {
+        .TimeField {
+            width: 30%;
+            float: left;
+        }
+        .DateField {
+            width: 50%;
+            float: left;
+        }
+    }
+    .SettingsDialog {
+        .SelectorItem {
+            position: absolute;
+        }
+    }
+}
+
+#InlineEditPanel {
+    z-index: 60;
+    display: none;
+}
+
+#InlineEditPanelFull {
+    z-index: 60;
+    display: none;
+}
+
+.RenderedItem {
+    .TextEditor {
+        .ORInput.Selected {
+            .EditorToolbar {
+                border-top-color: #444444;
+                border-left-color: #444444;
+                border-right-color: #444444;
+            }
+            .EditorArea {
+                border-bottom-color: #444444;
+                border-left-color: #444444;
+                border-right-color: #444444;
+            }
+        }
+        .ORInput {
+            .EditorArea {
+                border-color: #999999;
+                border-width: 2px;
+            }
+        }
+    }
+    .ORInput {
+        .EditorToolbar {
+            border-color: #999999;
+            border-width: 2px 2px 1px 2px;
+        }
+    }
+}
+
+.ContextMenu {
+    position: absolute;
+    background-color: #FFFFFF;
+    padding: 0px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    display: none;
+    min-width: 130px;
+    -moz-box-shadow: 0 0 3px 3px #CCC;
+    -webkit-box-shadow: 0 0 3px 3px#CCC;
+    box-shadow: 0 0 3px 3px #CCC;
+    z-index: 500;
+    .Commands {
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        border-color: #990000;
+        border-style: solid;
+        border-width: 1px;
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+        li.Disabled:hover {
+            background-color: #FFFFFF;
+            a {
+              color: @font-color-disabled;
+              text-decoration: none;
+            }
+        }
+        li.Disabled {
+            cursor: default;
+            a {
+              color: @font-color-disabled;
+              text-decoration: none;
+            }
+        }
+        li {
+            padding: 0;
+            font-size: 14px;
+            list-style: none;
+            cursor: pointer;
+            ul {
+                border-top: 1px dashed #CCCCCC;
+                border-bottom: 1px dashed #CCCCCC;
+                margin: 0;
+                li {
+                    background-color: #FFFFFF;
+                    margin: 0;
+                    a {
+                      color: #444444;
+                    }
+                }
+            }
+            a {
+                display: block;
+                padding: 6px 12px;
+                margin: 0;
+                white-space: nowrap;
+                color: @font-color;
+            }
+        }
+        li:hover {
+            background-color: #990000;
+            ul {
+                border-top: 1px dashed #CCCCCC;
+                border-bottom: 1px dashed #CCCCCC;
+                margin: 0;
+                li {
+                    background-color: #FFFFFF;
+                    margin: 0;
+                    a {
+                      color: #444444;
+                    }
+                }
+                li:hover {
+                    background-color: #990000;
+                    a {
+                      color: #FFFFFF;
+                    }
+                }
+            }
+            a {
+              color: @font-color-inverted;
+              text-decoration: none;
+            }
+        }
+    }
+}
+
+.LabelItem {
+    .Label {
+        height: auto;
+        width: auto;
+        float: none;
+    }
+}
+
+.InputItem {
+    .ORInput {
+        float: left;
+        input {
+            width: 100%;
+        }
+    }
+}
+
+.uiRadioChoice.uiBinary .Options ul li,
+.uiRadioChoice.uiRadio .Options ul li,
+.uiRadioChoice.uiList .Options ul li {
+    cursor: inherit;
+}
+
+.SettingsDialog {
+    height: 420px;
+    font-size: 1.2em;
+    .ORInput {
+        input,
+        textarea,
+        .SelectorItem {
+            width: 100%;
+        }
+    }
+    .SelectorItem {
+        .DropDownContainer {
+            top: 1.5em;
+        }
+        .ORInput {
+            width: 32em;
+        }
+        .Label {
+            height: 1.5em;
+            line-height: 1.5em;
+        }
+    }
+    .Suffix {
+        height: 1.5em;
+        font-size: 0.9em;
+        line-height: 1.5em;
+        width: 4em;
+    }
+    .Selector {
+        border-color: #CCCCCC;
+    }
+    .TextEditor {
+        .ORInput {
+            .EditorToolbar {
+                -moz-border-radius-topleft: 8px;
+                -webkit-border-top-left-radius: 8px;
+                border-top-left-radius: 8px;
+                -moz-border-radius-topright: 8px;
+                -webkit-border-top-right-radius: 8px;
+                border-top-right-radius: 8px;
+            }
+            textarea {
+                -moz-border-radius: 8px;
+                -webkit-border-radius: 8px;
+                border-radius: 8px;
+                height: 4em;
+                padding: 0.2em;
+            }
+            .EditorArea {
+                -moz-border-radius-bottomleft: 8px;
+                -webkit-border-bottom-left-radius: 8px;
+                border-bottom-left-radius: 8px;
+                -moz-border-radius-bottomright: 8px;
+                -webkit-border-bottom-right-radius: 8px;
+                border-bottom-right-radius: 8px;
+            }
+        }
+        .Label {
+            height: 1.5em;
+            line-height: 1.5em;
+        }
+    }
+    .ORInput {
+        width: 32em;
+        width: 32em;
+    }
+    .Label {
+        height: 1.5em;
+        line-height: 1.5em;
+        width: 8em;
+    }
+    .UiItem {
+        position: absolute;
+    }
+}
+
+/* This avoids survey preview overriding User Styling */
+.Contents,
+.HeaderContent {
+    .InputItem {
+        .ORInput {
+            float: left;
+            input {
+                border: 1px solid #CCCCCC;
+                height: 2em;
+                line-height: 1.4em;
+                padding: 0.2em;
+                color: @font-color;
+            }
+        }
+    }
+    .TextAreaItem {
+        .ORInput {
+            textarea {
+                border: 1px solid #CCCCCC;
+                padding: 0.2em;
+            }
+        }
+    }
+    .TextEditor {
+        .ORInput.Selected {
+            .EditorToolbar {
+                border-top-color: #990000;
+                border-left-color: #990000;
+                border-right-color: #990000;
+            }
+            .EditorArea {
+                border-bottom-color: #990000;
+                border-left-color: #990000;
+                border-right-color: #990000;
+            }
+        }
+        .ORInput {
+            float: left;
+            .EditorToolbar {
+                border-color: #CCCCCC;
+                border-width: 1px;
+            }
+            .nicEdit-main:focus {
+                outline: none;
+            }
+            .nicEdit-main {
+                width: 100%;
+            }
+            .EditorArea {
+                border-color: #CCCCCC;
+                border-width: 1px;
+            }
+        }
+    }
+}
+
+/* This override will overwrite what is on the survey editor area */
+.RenderedItem {
+    .InputItem {
+        .ORInput {
+            input {
+                height: 2em;
+                line-height: 1.4em;
+                padding: 0.6em;
+            }
+        }
+    }
+    .TextAreaItem {
+        .ORInput {
+            textarea {
+              font-size: 1em;
+            }
+        }
+    }
+    .InputItem .ORInput input:focus,
+    .TextAreaItem .ORInput textarea:focus {
+        color: inherit;
+        font-style: inherit;
+    }
+    .InputItem .ORInput input,
+    .TextAreaItem .ORInput textarea {
+        border: 2px solid #999;
+        color: #CCCCCC;
+        font-style: italic;
+    }
+    .InputItem .ORInput input:focus,
+    .TextAreaItem .ORInput textarea:focus {
+        border-color: #444444;
+    }
+}
+
+.InputItem .ORInput input:focus,
+.TextAreaItem .ORInput textarea:focus {
+}
+
+.TextAreaItem {
+    .ORInput {
+        textarea {
+            width: 100%;
+            padding: 0.2em;
+        }
+    }
+}
+
+.modal {
+  .modal-footer {
+    .left {
+      float: left;
+    }
+    .right {
+      float: right;
+    }
+  }
+}
+
+.TextEditor {
+    .ORInput.Selected {
+        .EditorToolbar {
+            border-top-color: #990000;
+            border-left-color: #990000;
+            border-right-color: #990000;
+        }
+        .EditorArea {
+            border-bottom-color: #990000;
+            border-left-color: #990000;
+            border-right-color: #990000;
+        }
+    }
+    .ORInput {
+        float: left;
+        .EditorToolbar {
+            border-color: #CCCCCC;
+            border-width: 1px;
+        }
+        .nicEdit-main:focus {
+            outline: none;
+        }
+        .nicEdit-main {
+            width: 100%;
+        }
+        textarea {
+            width: 100%;
+        }
+        .EditorArea {
+            border-color: #CCCCCC;
+            border-width: 1px;
+        }
+    }
+}
+
+.TabContainer {
+    overflow: visible;
+    height: 100%;
+    .Tabs {
+        padding: 1em 1em;
+        text-align: center;
+        a.Tab {
+            font-size: 1.3em;
+            background-color: #CCCCCC;
+            color: @font-color;
+            margin-right: 1em;
+            padding: 0.4em 1em;
+            -moz-border-radius: 1em;
+            -webkit-border-radius: 1em;
+            border-radius: 1em;
+            text-decoration: none;
+        }
+        a.Tab.Selected {
+            background-color: #990000;
+            color: #FFFFFF;
+        }
+    }
+    .Contents {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        position: relative;
+        .Content {
+            display: none;
+            position: absolute;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            .SelectorItem .Selector {
+                background-color: @base-inverse-color;
+                .SelectedItem {
+                    border-color: @font-color-inactive;
+                    font-size: 0.9em;
+                }
+            }
+            .Spinner .ORInput  {
+                font-size: 0.9em;
+                background-color: @base-inverse-color;
+                border-color: @font-color-inactive;
+                &:hover {
+                    border-color: @base-color-hover-strong;
+                }
+            }
+        }
+    }
+}
+
+.UiItem {
+    .Suffix {
+        overflow: hidden;
+        float: left;
+        padding: 0;
+        padding-left: 0.5em;
+    }
+    .Label {
+        padding: 0em;
+        line-height: 1.5em;
+    }
+}
+
