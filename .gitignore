@@ -8,6 +8,7 @@ src/stylesheets/respondant/templates/Slim/default.css
 src/stylesheets/respondant/themes/Black/default.css
 src/stylesheets/respondant/themes/Red/default.css
 src/stylesheets/respondant/themes/Gray/default.css
+src/stylesheets/respondant/icons.css
 src/stylesheets/ui/base/BaseUIStyleSheet.css
 src/stylesheets/ui/user/UserUIStyleSheet.css
 

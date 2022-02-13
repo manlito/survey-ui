@@ -5,6 +5,7 @@
  *
  */
  import ORBaseUIStrings from './../ui/base/languages/en-us'
+ import UserUIStrings from './../ui/user/languages/en-us'
  import ORUtils from './../util'
  import ORUserUI from './../ui/user/user-ui'
  import {
