@@ -1593,7 +1593,7 @@ export function launchSurvey(ORSettings) {
 				return;
 			} else {
 				// Prevent survey from hiding when scrolling back
-				this.showSurvey();
+				survey.showSurvey();
 			}
 
 			var scrollTarget = $();
@@ -1716,6 +1716,10 @@ export function launchSurvey(ORSettings) {
 
 			if (survey.settings.scrollingMode != 'Classic') {
 				var delta = event.deltaY;
+				// Not sure if this can happen
+				if (delta == 0) {
+					return;
+				}
 				if (survey.isMouseWheelScrollInProgress === true) {
 					// Prevent too many scroll events consecutively
 					return;
@@ -1725,7 +1729,7 @@ export function launchSurvey(ORSettings) {
 						survey.isMouseWheelScrollInProgress = false;
 					}, 250);
 				}
-				if (delta < 0) {
+				if (delta > 0) {
 					survey.handleNext();
 				} else {
 					survey.handlePrevious();
