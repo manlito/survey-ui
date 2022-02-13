@@ -686,7 +686,7 @@ export default function(jQueryObject, utils) {
 	};
 
 	this.rank = function(options) {
-		var rank = currentItem = this;
+		var rank = this;
 		var options = $.extend({
 			type: 'RadioText',
 			options: [],
@@ -717,11 +717,11 @@ export default function(jQueryObject, utils) {
 			// Note: This code was copied from listChoice
 			// Note: In the future we may will want to keep Lists and Grouped List appart
 			// TODO: Evaluate if, at the moment, better to integrate
-			if (currentItem.type == 'RateRadioImage') {
+			if (rank.type == 'RateRadioImage') {
 				optionCellLabel = ''
 					+ '<div class="Image"><img src="' + settings.extra + '"></div>'
 					+ optionCellLabel;
-			} else if (currentItem.type == 'RateRadioVideo') {
+			} else if (rank.type == 'RateRadioVideo') {
 				var videoIFrame = '';
 				if (settings.extra[0] === 'YouTube') {
 					videoIFrame = '<iframe width="320" height="180" src="http://www.youtube.com/embed/' + settings.extra[1] + '?rel=0" frameborder="0" allowfullscreen></iframe>';
@@ -883,18 +883,18 @@ export default function(jQueryObject, utils) {
 			// to the clicked item
 			event.stopPropagation();
 
-			if (typeof currentItem.events.activate != 'undefined') {
-				currentItem.events.activate(currentItem.currentContainer);
+			if (typeof rank.events.activate != 'undefined') {
+				rank.events.activate(rank.currentContainer);
 			}
 
-			currentItem.events.valueSet({
+			rank.events.valueSet({
 				value: {
 					label: optionLabel,
 					index: optionIndex
 				},
 				caller: rank.currentContainer, // Used to indicate which UIItem is invoking caller
-				relatedItemId: currentItem.getItemId(), // The Id of the related item
-				remainInItem: !currentItem.hasValue()
+				relatedItemId: rank.getItemId(), // The Id of the related item
+				remainInItem: !rank.hasValue()
 			});
 		};
 

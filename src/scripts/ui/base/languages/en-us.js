@@ -4,7 +4,7 @@
  *
  */
 
-export default {
+var ORBaseUIStrings = {
 	UNLIMITED: "Unlimited",
 	AUTO: "Auto",
 
@@ -31,3 +31,5 @@ export default {
 	SORTRANK_HEADER_GENERIC_CENTER: "Neutral",
 	SORTRANK_HEADER_GENERIC_RIGHT: "Very Important"
 };
+
+export default ORBaseUIStrings;

@@ -1,5 +1,6 @@
 
 // TODO: Get hashes directly from the server
+import ORBaseUIStrings from './../base/languages/en-us'
 import ORUserUIStrings from './languages/en-us'
 import ORBaseUI from './../base/base-ui'
 import editorStrings from './languages/en-us'
@@ -338,7 +339,7 @@ export default function(jQueryObject, utils) {
 			// If type is image, add the corresponding upload elements
 			if (options.type == 'RadioImage' || options.type == 'ListImage' || options.type == 'RateRadioImage') {
 				$(option).children('.OptionContent').children('.CellLabel').addClass('Rounded3px').addClass('RadioImageElement').addClass('RadioMediaElement')
-					.empty().append('<div class="Image"></div><div class="Legend">' + ($(option).data('label') || ORSurveyMain.baseUIStrings['DROPDOWN_NEW_OPTION']) + '</div>');
+					.empty().append('<div class="Image"></div><div class="Legend">' + ($(option).data('label') || ORBaseUIStrings['DROPDOWN_NEW_OPTION']) + '</div>');
 
 				// Create the uploader
 				new ui.imageUploader({
@@ -347,7 +348,7 @@ export default function(jQueryObject, utils) {
 				})
 			} else if (options.type == 'RadioVideo' || options.type == 'ListVideo' || options.type == 'RateRadioVideo') {
 				$(option).children('.OptionContent').children('.CellLabel').addClass('Rounded3px').addClass('RadioVideoElement').addClass('RadioMediaElement')
-					.empty().append('<div class="Video"></div><div class="Legend">' + ($(option).data('label') || ORSurveyMain.baseUIStrings['DROPDOWN_NEW_OPTION']) + '</div>');
+					.empty().append('<div class="Video"></div><div class="Legend">' + ($(option).data('label') || ORBaseUIStrings['DROPDOWN_NEW_OPTION']) + '</div>');
 
 				new ui.videoUploader({
 					container: $(option).children('.OptionContent').children('.CellLabel').children('.Video'),
@@ -401,7 +402,7 @@ export default function(jQueryObject, utils) {
 							of: $(this).closest('ul')
 						});
 						// If text is yet the default, click should select all text
-						if ($(this).html() == ORSurveyMain.baseUIStrings['DROPDOWN_NEW_OPTION']) {
+						if ($(this).html() == ORBaseUIStrings['DROPDOWN_NEW_OPTION']) {
 							$(this).selText();
 						}
 					}
@@ -457,7 +458,7 @@ export default function(jQueryObject, utils) {
 			var commandBar = $('<div class="OptionCommands">'
 				+ '<a class="SortAsc"><div>&nbsp;</div></a> '
 				+ '<a class="SortDesc"><div>&nbsp;</div></a> &nbsp;&nbsp;&nbsp;&nbsp;'
-				+ '<a class="Add"><div>' + ORSurveyMain.baseUIStrings['DROPDOWN_ADD_OPTION'] + '</div></a> '
+				+ '<a class="Add"><div>' + ORBaseUIStrings['DROPDOWN_ADD_OPTION'] + '</div></a> '
 				+ '</div>').appendTo(this.optionsContainer);
 
 			// Sort used for list elements of list
