@@ -177,8 +177,7 @@ export default function(jQueryObject, utils) {
 
 		var tooltip = this;
 
-		this.tipWrap = $('<div class="ORRespondant"></div>').appendTo('body');
-		this.tip = $('<div class="ToolTip"></div>').appendTo(this.tipWrap);
+		this.tip = $('<div class="ToolTip"></div>').appendTo('body');
 		this.tipContent = $('<div class="TipContent">' + options.text + '</div>').appendTo(this.tip);
 
 		if (options.container.is('input')) {
