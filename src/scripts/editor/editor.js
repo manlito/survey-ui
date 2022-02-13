@@ -7,6 +7,13 @@
  import ORBaseUIStrings from './../ui/base/languages/en-us'
  import ORUtils from './../util'
  import ORUserUI from './../ui/user/user-ui'
+ import {
+	itemVisibilityOptions,
+	itemLayoutOptions,
+	itemOrientationOptions,
+	itemOpenSize,
+	checkGroupHeaderStyles
+ } from './../ui/user/options'
  import editorStrings from './languages/en-us'
 
  // Globals for the editor
@@ -770,7 +777,7 @@ function surveyEditor(events) {
 	 *
 	 */
 	this.renderItem = function (options, itemData) {
-		renderOptions = $.extend({
+		var renderOptions = $.extend({
 			id: "",
 			type: "unset",
 			containingElement: undefined,
@@ -955,8 +962,8 @@ function surveyEditor(events) {
 				showIcon: true,
 				other: {
 					show: false,
-					label: ORBaseUIStrings()['DROPDOWN_OTHER'],
-					hint: ORBaseUIStrings()['DROPDOWN_OTHER_SPECIFY']
+					label: ORBaseUIStrings['DROPDOWN_OTHER'],
+					hint: ORBaseUIStrings['DROPDOWN_OTHER_SPECIFY']
 				}
 			},
 			open: {
@@ -2195,7 +2202,7 @@ function surveyEditor(events) {
 		var propertiesContainer = $("#Properties").children('.Fields').empty()
 
 		// For all items, show the display rules selector
-		layoutSelector = new ui.button({
+		var layoutSelector = new ui.button({
 			id: 'DisplayRulesSelector',
 			container: propertiesContainer,
 			label: editorStrings['PROPERTIES_DISPLAY_RULES'],
