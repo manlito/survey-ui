@@ -912,10 +912,9 @@ function surveyEditor(events) {
 			},
 			cursor: 'move',
 			helper: function () {
-				utils.console("itemType " + itemType)
 				// Trick: Extract the icon from the toolbar
 				return ''
-					+ '<div class="SurveyDraggingItem Iconset">' + $('#' + itemType).parent().html()
+					+ '<div class="SurveyDraggingItem">' + $('#' + itemType).parent().html()
 					+ '<div class="Legend">' + tr(UserUIStrings['DRAGGING_EXISTING'], itemType) + '</div>'
 					+ '</div>'
 			},
@@ -3046,12 +3045,12 @@ function surveyEditor(events) {
 					var newWidthData = {
 						width: cellWidth.dimension > 0 ? cellWidth.dimension + '' + widthLabel : 'auto'
 					}
-					// Animation of colum width is not working for now
+					// Animation of colum width is always restarting from old value
 					// Jquery animation when width is auto won't work
 					// if (options.animate !== false && cellWidth.dimension > 0)
-						// $(this).animate(newWidthData)
+					//   $(this).animate(newWidthData)
 					// else
-						$(this).css(newWidthData)
+					$(this).css(newWidthData)
 				})
 			}
 
