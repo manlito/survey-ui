@@ -3,7 +3,7 @@
 import ORBaseUIStrings from './../base/languages/en-us'
 import ORUserUIStrings from './languages/en-us'
 import ORBaseUI from './../base/base-ui'
-import editorStrings from './languages/en-us'
+import EditorUIStrings from './../../editor/languages/en-us'
 import {
 	surveyStatusOptions,
 	deliveryStrategyOptions,
@@ -117,7 +117,7 @@ export default function(jQueryObject, utils) {
 			click: function(event) {
 
         // If text is yet the default, click should select all text
-        if ($(this).html() == editorStrings['LABEL_DEFAULT']) {
+        if ($(this).html() == EditorUIStrings['LABEL_DEFAULT']) {
           $(this).selText();
         }
 
@@ -834,7 +834,7 @@ export default function(jQueryObject, utils) {
 				var itemHTML = '' + '<div id="' + itemSettings.id + 'Container">' +
                     '<div class="Item Iconset" style="background-position: ' + itemSettings.texturePositionX + ' ' + itemSettings.texturePositionY + '" id="' + itemSettings.id + '">' +
                     '<div class="Label">' + itemSettings.title + '</div><div class="InsertNewItem">' + itemSettings.id + '</div>' +
-                    (itemSettings.enabled !== true ? '<div class="Pro">' + editorStrings['PRO'] + '</div>' : '') +
+                    (itemSettings.enabled !== true ? '<div class="Pro">' + EditorUIStrings['PRO'] + '</div>' : '') +
                     '</div>' +
                     '</div>';
 
@@ -936,7 +936,7 @@ export default function(jQueryObject, utils) {
 				// Add tooltip to node
 				new ui.tooltip({
 					container: $('#' + itemSettings.id),
-					text: itemSettings.enabled ? (itemData.children > 0 ? ORUserUIStrings['TIP_CLICK_TO_VIEW_SUBITEMS'] : ORUserUIStrings['TIP_CLICK_TO_INSERT']) : editorStrings['PRO_ITEM_DETAIL'],
+					text: itemSettings.enabled ? (itemData.children > 0 ? ORUserUIStrings['TIP_CLICK_TO_VIEW_SUBITEMS'] : ORUserUIStrings['TIP_CLICK_TO_INSERT']) : EditorUIStrings['PRO_ITEM_DETAIL'],
 					position: 'top',
 					delay: 500
 				});
@@ -1325,20 +1325,20 @@ export default function(jQueryObject, utils) {
 					items.title = new ui.input({
 						id : 'SurveyTitle',
 						container : titleAndMessages,
-						label : editorStrings['SETTINGS_TITLE'],
+						label : EditorUIStrings['SETTINGS_TITLE'],
 						description : 'Description of the command',
 						controlClass : 'form-control'
 					});
 					items.introText = new ui.textEditor({
 						id : 'SurveyIntro',
 						container : titleAndMessages,
-						label : editorStrings['SETTINGS_INTRO_TEXT'],
+						label : EditorUIStrings['SETTINGS_INTRO_TEXT'],
 						description : 'Description of the command'
 					});
 					items.closingText = new ui.textEditor({
 						id : 'SurveyClosing',
 						container : titleAndMessages,
-						label : editorStrings['SETTINGS_CLOSING_TEXT'],
+						label : EditorUIStrings['SETTINGS_CLOSING_TEXT'],
 						description : 'Description of the command'
 					});
 					break;
@@ -1348,19 +1348,19 @@ export default function(jQueryObject, utils) {
 					new ui.label({
 						id : 'PublicationLabel',
 						container : publicationSettings,
-						label : editorStrings['SETTINGS_LABEL_PUBLICATION']
+						label : EditorUIStrings['SETTINGS_LABEL_PUBLICATION']
 					});
 					items.startDate = new ui.dateTime({
 						id : 'StartDeliveryOn',
 						container : publicationSettings,
-						label : editorStrings['SETTINGS_START_DATE'],
+						label : EditorUIStrings['SETTINGS_START_DATE'],
 						description : 'Description of the command',
 						controlClass : 'form-control'
 					});
 					items.endDate = new ui.dateTime({
 						id : 'EndDeliveryOn',
 						container : publicationSettings,
-						label : editorStrings['SETTINGS_END_DATE'],
+						label : EditorUIStrings['SETTINGS_END_DATE'],
 						description : 'Description of the command',
 						controlClass : 'form-control'
 					});
@@ -1368,7 +1368,7 @@ export default function(jQueryObject, utils) {
 						id : 'StatusSelector',
 						container : publicationSettings,
 						options: surveyStatusOptions,
-						label : editorStrings['SETTINGS_SURVEY_STATUS'],
+						label : EditorUIStrings['SETTINGS_SURVEY_STATUS'],
 						description : 'Description of the command'
 					});
 
@@ -1376,24 +1376,24 @@ export default function(jQueryObject, utils) {
 					new ui.label({
 						id : 'ServingLabel',
 						container : servingSettings,
-						label : editorStrings['SETTINGS_LABEL_SERVING']
+						label : EditorUIStrings['SETTINGS_LABEL_SERVING']
 					});
 					items.enableItemRandomize = new ui.checkbox({
 						id : 'EnableItemRandomize',
 						container : servingSettings,
-						label : editorStrings['SETTINGS_ENABLE_ITEM_RANDOMIZE'],
+						label : EditorUIStrings['SETTINGS_ENABLE_ITEM_RANDOMIZE'],
 						description : 'Description of the command'
 					});
 					items.enableOptionRandomize = new ui.checkbox({
 						id : 'EnableOptionRandomize',
 						container : servingSettings,
-						label : editorStrings['SETTINGS_ENABLE_OPTION_RANDOMIZE'],
+						label : EditorUIStrings['SETTINGS_ENABLE_OPTION_RANDOMIZE'],
 						description : 'Description of the command'
 					});
 					items.showHiddenItemsAsDisabled = new ui.checkbox({
 						id : 'ShowHiddenItemsAsDisabled',
 						container : servingSettings,
-						label : editorStrings['SETTINGS_ENABLE_HIDDEN_ITEMS_VISIBLE'],
+						label : EditorUIStrings['SETTINGS_ENABLE_HIDDEN_ITEMS_VISIBLE'],
 						description : 'Description of the command'
 					});
 
@@ -1401,13 +1401,13 @@ export default function(jQueryObject, utils) {
 					new ui.label({
 						id : 'NavigationLabel',
 						container : navigation,
-						label : editorStrings['SETTINGS_LABEL_NAVIGATION']
+						label : EditorUIStrings['SETTINGS_LABEL_NAVIGATION']
 					});
 					items.scrollingMode = new ui.selector({
 						id : 'ScrollingMode',
 						container : navigation,
 						options: scrollingOptions,
-						label : editorStrings['SETTINGS_SCROLLING_MODE'],
+						label : EditorUIStrings['SETTINGS_SCROLLING_MODE'],
 						description : 'Description of the command'
 					});
 
@@ -1416,7 +1416,7 @@ export default function(jQueryObject, utils) {
 						container : navigation,
 						minValue : 1,
 						fastIncrement : 5,
-						label : editorStrings['SETTINGS_VISIBLE_ITEMS'],
+						label : EditorUIStrings['SETTINGS_VISIBLE_ITEMS'],
 						value : 15
 					});
 
@@ -1424,19 +1424,19 @@ export default function(jQueryObject, utils) {
 					new ui.label({
 						id : 'AppearanceLabel',
 						container : appearance,
-						label : editorStrings['SETTINGS_LABEL_APPEARANCE']
+						label : EditorUIStrings['SETTINGS_LABEL_APPEARANCE']
 					});
           items.template = new ui.selector({
             id: 'SurveyTemplate',
             container: appearance,
             options: surveyTemplateOptions,
-            label: editorStrings['SETTINGS_TEMPLATE']
+            label: EditorUIStrings['SETTINGS_TEMPLATE']
           });
           items.theme = new ui.selector({
             id: 'SurveyTheme',
             container: appearance,
             options: surveyThemeOptions,
-            label: editorStrings['SETTINGS_THEME']
+            label: EditorUIStrings['SETTINGS_THEME']
 						// TODO: Check how to update theme from settings
             // command: editor.handleChangeTheme
           });
@@ -1445,7 +1445,7 @@ export default function(jQueryObject, utils) {
 					new ui.label({
 						id : 'ObjectivesLabel',
 						container : objectives,
-						label : editorStrings['SETTINGS_LABEL_OBJECTIVES']
+						label : EditorUIStrings['SETTINGS_LABEL_OBJECTIVES']
 					});
 					items.maxResponsesPerDay = new ui.spinner({
 						id : 'MaxResponsesPerDay',
@@ -1454,8 +1454,8 @@ export default function(jQueryObject, utils) {
 						minValue : 0,
 						maxValue : 1000,
 						fastIncrement : 10,
-						label : editorStrings['SETTINGS_MAX_RESPONSES_PER_DAY'],
-						suffix : editorStrings['SETTINGS_RESPONSES']
+						label : EditorUIStrings['SETTINGS_MAX_RESPONSES_PER_DAY'],
+						suffix : EditorUIStrings['SETTINGS_RESPONSES']
 					});
 					items.maxResponsesTotal = new ui.spinner({
 						id : 'MaxResponsesTotal',
@@ -1464,14 +1464,14 @@ export default function(jQueryObject, utils) {
 						minValue : 0,
 						maxValue : 10000,
 						fastIncrement : 100,
-						label : editorStrings['SETTINGS_MAX_RESPONSES_TOTAL'],
-						suffix : editorStrings['SETTINGS_RESPONSES']
+						label : EditorUIStrings['SETTINGS_MAX_RESPONSES_TOTAL'],
+						suffix : EditorUIStrings['SETTINGS_RESPONSES']
 					});
 					items.deliveryStrategy = new ui.selector({
 						id : 'DeliveryStrategy',
 						container : objectives,
 						options: deliveryStrategyOptions,
-						label : editorStrings['SETTINGS_DELIVERY_STRATEGY']
+						label : EditorUIStrings['SETTINGS_DELIVERY_STRATEGY']
 					});
 
 					break;
@@ -1595,7 +1595,7 @@ export default function(jQueryObject, utils) {
 					contentType: 'application/json; charset=utf-8',
 					statusCode: {
 						202 /* Updated */: function(data) {
-							$(editorStrings['SAVE_SUCCESS']).notify({
+							$(EditorUIStrings['SAVE_SUCCESS']).notify({
 								autoHide: 3000
 							});
 							// On success save, hide dialog
@@ -1604,7 +1604,7 @@ export default function(jQueryObject, utils) {
 						},
 						200 /* Record does not exist */: function(data) {
 							$().notify({
-								title: editorStrings['SAVE_ERROR'],
+								title: EditorUIStrings['SAVE_ERROR'],
 								autoHide: 3000,
 								message: data,
 								type: 'Error'

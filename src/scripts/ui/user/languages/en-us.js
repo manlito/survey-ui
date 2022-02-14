@@ -1,50 +1,47 @@
 ﻿
-var UserUIStrings = {};
+var EditorUIStrings = {
+  UNLIMITED: "Unlimited",
+  DONE: "Done",
+  SAVE: "Save",
+  DISCARD: "Discard",
+  DRAGGING_NEW: "Drag this to create a new <b>%s</b> item",
+  DRAGGING_EXISTING: "Drag this to move or swap <b>%s</b> item",
 
-UserUIStrings['UNLIMITED'] = "Unlimited";
+  // These map to survey item types
+  Dropdown: "Dropdown",
+  RadioText: "RadioText",
+  RadioImage: "RadioImage",
+  RadioVideo: "RadioVideo",
+  RadioEmbed: "RadioEmbed",
+  RadioHTML: "RadioHTML",
+  ListText: "ListText",
+  ListImage: "ListImage",
+  ListVideo: "ListVideo",
+  ListEmbed: "ListEmbed",
+  ListHTML: "ListHTML",
 
-UserUIStrings['DONE'] = "Done";
-UserUIStrings['SAVE'] = "Save";
-UserUIStrings['DISCARD'] = "Discard";
+  Dropdown_DETAILED: "Dropdown Selector",
+  RadioText_DETAILED: "Radio Choice with Text",
+  RadioImage_DETAILED: "Radio Choice with Images",
+  RadioVideo_DETAILED: "Radio Choice with Video",
+  RadioEmbed_DETAILED: "Radio Choice with Embedded Content",
+  RadioHTML_DETAILED: "Radio Choice with custom HTML",
+  ListText_DETAILED: "List Choice with Text",
+  ListImage_DETAILED: "List Choice with Images",
+  ListVideo_DETAILED: "List Choice with Video",
+  ListEmbed_DETAILED: "List Choice with Embedded Content",
+  ListHTML_DETAILED: "List Choice with custom HTML",
 
-UserUIStrings['DRAGGING_NEW'] = "Drag this to create a new <b>%s</b> item";
-UserUIStrings['DRAGGING_EXISTING'] = "Drag this to move or swap <b>%s</b> item";
+  TIP_SURVEY_NAME: "Define an internal name. It <b>won't</b> be exposed to respondants.",
+  TIP_CLICK_TO_VIEW_SUBITEMS: 'Click to view subitems',
+  TIP_CLICK_TO_INSERT: 'Click to <b>insert</b> at the end',
+  IMAGE_REMOVE: 'Replace',
+  VIDEO_REMOVE: 'Replace',
+  VIDEO_URL: 'URL',
 
-// These map to survey item types
-UserUIStrings['Dropdown'] = "Dropdown";
-UserUIStrings['RadioText'] = "RadioText";
-UserUIStrings['RadioImage'] = "RadioImage";
-UserUIStrings['RadioVideo'] = "RadioVideo";
-UserUIStrings['RadioEmbed'] = "RadioEmbed";
-UserUIStrings['RadioHTML'] = "RadioHTML";
-UserUIStrings['ListText'] = "ListText";
-UserUIStrings['ListImage'] = "ListImage";
-UserUIStrings['ListVideo'] = "ListVideo";
-UserUIStrings['ListEmbed'] = "ListEmbed";
-UserUIStrings['ListHTML'] = "ListHTML";
-
-UserUIStrings['Dropdown_DETAILED'] = "Dropdown Selector";
-UserUIStrings['RadioText_DETAILED'] = "Radio Choice with Text";
-UserUIStrings['RadioImage_DETAILED'] = "Radio Choice with Images";
-UserUIStrings['RadioVideo_DETAILED'] = "Radio Choice with Video";
-UserUIStrings['RadioEmbed_DETAILED'] = "Radio Choice with Embedded Content";
-UserUIStrings['RadioHTML_DETAILED'] = "Radio Choice with custom HTML";
-UserUIStrings['ListText_DETAILED'] = "List Choice with Text";
-UserUIStrings['ListImage_DETAILED'] = "List Choice with Images";
-UserUIStrings['ListVideo_DETAILED'] = "List Choice with Video";
-UserUIStrings['ListEmbed_DETAILED'] = "List Choice with Embedded Content";
-UserUIStrings['ListHTML_DETAILED'] = "List Choice with custom HTML";
-
-UserUIStrings['TIP_SURVEY_NAME'] = "Define an internal name. It <b>won't</b> be exposed to respondants.";
-UserUIStrings['TIP_CLICK_TO_VIEW_SUBITEMS'] = 'Click to view subitems';
-UserUIStrings['TIP_CLICK_TO_INSERT'] = 'Click to <b>insert</b> at the end';
-UserUIStrings['IMAGE_REMOVE'] = 'Replace';
-UserUIStrings['VIDEO_REMOVE'] = 'Replace';
-UserUIStrings['VIDEO_URL'] = 'URL'
-
-// Theme colors
-UserUIStrings['THEME_Red'] = 'Red';
-UserUIStrings['THEME_Gray'] = 'Gray';
-UserUIStrings['THEME_Black'] = 'Black';
-
-export default UserUIStrings;
+  // Theme colors
+  THEME_Red: 'Red',
+  THEME_Gray: 'Gray',
+  THEME_Black: 'Black'
+}
+export default EditorUIStrings
