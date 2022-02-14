@@ -13,7 +13,9 @@
 	itemLayoutOptions,
 	itemOrientationOptions,
 	itemOpenSize,
-	checkGroupHeaderStyles
+	itemTextAreaSize,
+	checkGroupHeaderStyles,
+	desktopEmbedUnitOptions
  } from './../ui/user/options'
  import editorStrings from './languages/en-us'
 
@@ -3114,7 +3116,7 @@ function surveyEditor(events) {
 			}
 
 			this.getMatrixData = function () {
-				return matrixData = {
+				return {
 					rows: matrix.table.children('tbody').children('tr').size(),
 					cols: matrix.table.children('tbody').children('tr').first().children('td').size(),
 					widths: matrix.table.children('tbody').children('tr').first().children('td').map(function () {

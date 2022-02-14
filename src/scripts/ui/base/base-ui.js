@@ -1517,7 +1517,7 @@ export default function(jQueryObject, utils) {
 			var currentLegend = input.attr('value');
 			// Spinner may have the unlimited legend
 			if (currentLegend == settings.zeroLabel) {
-				return currentValue = 0;
+				return 0;
 			} else if (settings.format == 'time') {
 				var time = currentLegend.split(/\:/);
 				var hours = Number(time[0]);
