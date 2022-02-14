@@ -3046,10 +3046,11 @@ function surveyEditor(events) {
 					var newWidthData = {
 						width: cellWidth.dimension > 0 ? cellWidth.dimension + '' + widthLabel : 'auto'
 					}
+					// Animation of colum width is not working for now
 					// Jquery animation when width is auto won't work
-					if (options.animate !== false && cellWidth.dimension > 0)
-						$(this).animate(newWidthData)
-					else
+					// if (options.animate !== false && cellWidth.dimension > 0)
+						// $(this).animate(newWidthData)
+					// else
 						$(this).css(newWidthData)
 				})
 			}

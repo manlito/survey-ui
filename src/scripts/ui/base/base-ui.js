@@ -1514,7 +1514,7 @@ export default function(jQueryObject, utils) {
 
 		this.getInputValue = function() {
 			var input = item.find('input');
-			var currentLegend = input.attr('value');
+			var currentLegend = input.val();
 			// Spinner may have the unlimited legend
 			if (currentLegend == settings.zeroLabel) {
 				return 0;
@@ -1543,12 +1543,11 @@ export default function(jQueryObject, utils) {
 					var minutes = parseInt(value / 60) % 60;
 					var seconds = value % 60;
 					newLegend =  hours + ':' + (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-					utils.console('Current val ' + value);
 				} else {
 					newLegend = value;
 				}
 			}
-			item.find('input').attr('value', newLegend);
+			item.find('input').val(newLegend);
 
 			if (!changeOptions.skipEvents) {
 				item.find('input').trigger('change');
