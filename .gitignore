@@ -1,5 +1,6 @@
 dist/
 node_modules/
+src/stylesheets/3rd-party/bootstrap/less/bootstrap.css
 src/stylesheets/editor/SurveyEditorStyleSheet.css
 src/stylesheets/respondant/respondant.css
 src/stylesheets/respondant/templates/ButtonLess/default.css
