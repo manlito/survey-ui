@@ -865,7 +865,7 @@ export default function(jQueryObject, utils) {
 			// Set the value for a single option element
 			var optionLabel = $(this).closest('.Option.Content').data('label');
 			// Get the index of the selected value for the atribute
-			var optionIndex = $(this).parent().find('.CellCheck').get().map(function() {
+			var optionIndex = $(this).parent().find('.CellCheck').map(function() {
 				return $(this).hasClass('Selected');
 			}).get().indexOf(true) + 1;
 
@@ -908,7 +908,7 @@ export default function(jQueryObject, utils) {
 			utils.console("Getting rank value");
 			var newValue = { };
 			rank.optionsContainer.children('ul').children('li').slice(1).each(function(index) {
-				newValue[$(this).data('label')] = $(this).find('.CellCheck').get().map(function() {
+				newValue[$(this).data('label')] = $(this).find('.CellCheck').map(function() {
 					return $(this).hasClass('Selected');
 				}).get().indexOf(true);
 			});
