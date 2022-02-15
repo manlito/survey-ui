@@ -786,7 +786,11 @@
             border-width: 1px;
             border-style: solid;
             min-width: 16em;
-            display: none;
+            transform: scaleY(0);
+            transform-origin: left top;
+            transition-property: transform;
+            transition-delay: 25ms;
+            transition-duration: 200ms;
             z-index: 20;
             ul {
                 padding: 5px;

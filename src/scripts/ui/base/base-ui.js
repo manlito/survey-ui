@@ -360,23 +360,21 @@ export default function(jQueryObject, utils) {
 
 		/** Show the dropdown **/
 		this.expand = function() {
-
 			currentItem.optionsContainer.css({
-				top : container.height()
+				top : container.height(),
+				transform: 'scaleY(1)'
 			});
-
-			$(currentItem.currentContainer).addClass('selected');
-			currentItem.optionsContainer.slideDown('fast');
-
+			currentItem.currentContainer.addClass('selected');
 			currentItem.collapsed = false;
 		};
 
 		/** Hide the dropdown **/
 		this.collapse = function() {
 			// Triggered manually to hide selectors
-			$(currentItem.currentContainer).removeClass('selected');
-			currentItem.optionsContainer.slideUp('fast');
-
+			currentItem.currentContainer.removeClass('selected');
+			currentItem.optionsContainer.css({
+				transform: 'scaleY(0)'
+			});
 			currentItem.collapsed = true;
 		};
 
