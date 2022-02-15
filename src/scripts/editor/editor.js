@@ -1708,16 +1708,20 @@ function surveyEditor(events) {
 		editor.dialogs.surveySettings.hasChanged = true
 
 		// Load a survey in test mode
-		ORSettings = {
+		var surveyData = {
 			testMode: true,
 			surveyId: 'surveyPreview' + utils.randomId(),
 			containerId: contentPlaceholder.attr('id'),
 			height: 450,
 			controlClass: 'form-control',
-			data: editor.getSurvey()
+			data: editor.getSurvey(),
+			animation: {
+				show: {
+					delay: 250
+				}
+			}
 		}
-		window.console.log(JSON.stringify(ORSettings))
-		$.getScript("scripts/respondant/respondant.js")
+		OverResponse.respondant.launchSurvey(surveyData);
 
 		editor.dialogs.surveyPreview.show()
 	}
@@ -1778,9 +1782,9 @@ function surveyEditor(events) {
 		// Make true to make getSurvey return settings too
 		editor.dialogs.surveySettings.hasChanged = true
 
-		// Load a survey in test mode
+		// Load a survey in test modecontentPlaceholder
 		var testSurveyId = 'surveyPreview' + utils.randomId()
-		ORSettings = {
+		var surveyData = {
 			testMode: true,
 			surveyId: testSurveyId,
 			containerId: 'DisplayRulePreview',
@@ -1790,9 +1794,9 @@ function surveyEditor(events) {
 			hideCommands: true,
 			data: editor.getSurvey()
 		}
-		$.getScript("/scripts/respondant/respondant.js")
+		OverResponse.respondant.launchSurvey(surveyData);
 
-		$('<div class="GenericSpacer" />').appendTo(contentPlaceholder)
+		$('<div class="GenericSpacer" />').appendTo(surveyData)
 
 		// The ADD Rule button
 		$('<div>'

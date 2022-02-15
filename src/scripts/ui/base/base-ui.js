@@ -789,13 +789,13 @@ export default function(jQueryObject, utils) {
 			var styleChanged = selectedValue != rank.options.headerStyle;
 			var rowContainer = heading.find('.CellHeadings tr');
 
-			if (styleChanged || rowContainer.size() == 0) {
+			if (styleChanged || rowContainer.length == 0) {
 				rowContainer = $('<table><tr></tr></table>').appendTo(heading.find('.CellHeadings').empty()).find('tr');
 				styleChanged = true;
 			}
 
 			// If the number of headears and columns are equal, then mark a flag
-			var currentCells = rowContainer.children().size();
+			var currentCells = rowContainer.children().length;
 			rank.useHeaderAsLabels = rank.options.levels === currentCells;
 
 			switch (selectedValue)
@@ -900,8 +900,8 @@ export default function(jQueryObject, utils) {
 
 		this.hasValue = function() {
 			return rank.optionsContainer.children('ul').children('li').slice(1).find('.CellCheckGroup').filter(function() {
-				return $(this).find('.Selected').size() > 0;
-			}).size() == (rank.optionsContainer.children('ul').children('li').size() - 1);
+				return $(this).find('.Selected').length > 0;
+			}).length == (rank.optionsContainer.children('ul').children('li').length - 1);
 		};
 
 		/** Get the full value of the rank item, as an array **/
