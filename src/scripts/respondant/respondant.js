@@ -20,10 +20,12 @@ import ORStrings from './languages/en-us'
 import ORUtils from './../util'
 import ORBaseUI from './../ui/base/base-ui'
 
-export function launchSurvey(ORSettings) {
-	// Just make sure this global scope object is not undefined
-	var ORSurveys = {};
+// List of all surveys in our App. Available here so
+// We can get a survey by its ID, or in the most common case,
+// get the only survey
+var ORSurveys = {};
 
+export function launchSurvey(surveyData) {
 	// Store server address (ex: http://use.overresponse.com)
 	var server = '//use.overresponse.com';
 	var serverAssets = '//static.overresponse.com';
@@ -53,16 +55,7 @@ export function launchSurvey(ORSettings) {
 	// In memory survey status.
 	var surveyStatus = 'active';
 
-	// If no surveyId is provided, then anything else on this file is meaningless
-	if (!(typeof ORSettings != 'undefined' && typeof ORSettings.surveyId != 'undefined')) {
-		return;
-	}
-
-	// If using the asynchronous API, settings have to be passed using the
-	// ORSettings object
-	if (typeof ORSettings === 'undefined') {
-		ORSettings = {};
-	}
+	var ORSettings = surveyData || {};
 	var ORSurveyId = ORSettings.surveyId;
 	var ORContainerId = ORSettings.containerId;
 
@@ -456,6 +449,23 @@ export function launchSurvey(ORSettings) {
 
 			// Set current item on center offset (used for smart scrolling)
 			survey.render.activeChild = 0;
+		};
+
+		/**
+		 * Accessor for current respondant values
+		 */
+		 this.getResponses = function() {
+			return $.extend(true, {}, survey.responses);
+		};
+
+		/**
+		 * Reset respondant values
+		 */
+		 this.resetResponses = function() {
+			survey.responses = {};
+			$.each(survey.uiItems, function() {
+				this.reset();
+			});
 		};
 
 		/**
@@ -1784,40 +1794,26 @@ export function launchSurvey(ORSettings) {
 
 	// Backwards style
 	this.start();
+};
 
-	/**
-	 *
-	 * Returns the object with provided responses. Items for which respondant
-	 * did not provide an answer are returned.
-	 *
-	 * TODO: Clone the object to avoid user to modify its content
-	 *
-	 */
-	this.getResponses = function(surveyId) {
-		if (typeof surveyId == 'undefined') {
-			// If it is not provided, take the global value, which contains the latest surveyId
-			surveyId = ORSurveyId;
-		}
+function tryGetSurvey(surveyId) {
+	if (Object.keys(ORSurveys).length == 0) {
+		throw Error("There are no surveys created. First call 'launchSurvey'");
+	} else if (Object.keys(ORSurveys).length == 1) {
+		return ORSurveys[Object.keys(ORSurveys)[0]];
+	} else if (surveyId === undefined) {
+		throw Error("surveyId was not provided. When there are more than 1 survey, it is required");
+	} else if (Object.keys(ORSurveys).indexOf(surveyId) < 0) {
+		throw Error(`surveyId ${surveyId} was not found`);
+	} else {
+		return ORSurveys[surveyId];
+	}
+}
 
-		return $.extend(true, {}, ORSurveys[surveyId].responses);
-	};
+export function getResponses(surveyId) {
+	tryGetSurvey(surveyId).getResponses();
+};
 
-	/**
-	 *
-	 * Returns the object with provided responses. Items for which respondant
-	 * did not provide an answer are returned.
-	 *
-	 * TODO: Clone the object to avoid user to modify its content
-	 *
-	 */
-	this.resetResponses = function(surveyId) {
-		if (typeof surveyId == 'undefined') {
-			// If it is not provided, take the global value, which contains the latest surveyId
-			surveyId = ORSurveyId;
-		}
-		ORSurveys[surveyId].responses = {};
-		$.each(ORSurveys[surveyId].uiItems, function() {
-			this.reset();
-		});
-	};
+export function resetResponses(surveyId) {
+	tryGetSurvey(surveyId).resetResponses();
 };

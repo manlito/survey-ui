@@ -1796,7 +1796,7 @@ function surveyEditor(events) {
 		}
 		OverResponse.respondant.launchSurvey(surveyData);
 
-		$('<div class="GenericSpacer" />').appendTo(surveyData)
+		$('<div class="GenericSpacer" />').appendTo(contentPlaceholder)
 
 		// The ADD Rule button
 		$('<div>'
@@ -1843,7 +1843,7 @@ function surveyEditor(events) {
 		renderRules()
 
 		$('#SaveSingleRuleButton').click(function () {
-			var responses = ORSurveyMain.getResponses(testSurveyId)
+			var responses = OverResponse.respondant.getResponses(testSurveyId)
 			utils.c(responses)
 			if ($.map(responses, function (n, i) { return i }).length == 0) {
 				notify({
@@ -1856,7 +1856,7 @@ function surveyEditor(events) {
 					ruleSet: responses
 				})
 				// Reset the selection
-				ORSurveyMain.resetResponses(testSurveyId)
+				OverResponse.respondant.resetResponses(testSurveyId)
 				notify(editorStrings['DISPLAY_RULES_ADDED'])
 
 				// Update item data with new display rules
