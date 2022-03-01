@@ -902,7 +902,6 @@ export function launchSurvey(surveyData) {
 					// Indentity operation for OR
 					var ruleSetResult = false;
 					// First, iterate in group rules (OR)
-					console.log("Processing visibility rules");
 					$.each(item.visibility.rules.map(function(rule, index) {
 						// Indentity operation for AND
 						var ruleResult = true;
@@ -943,8 +942,7 @@ export function launchSurvey(surveyData) {
 						ruleSetResult = ruleSetResult || value;
 					});
 
-					// utils.console('ruleSet for ' + item.id + ' is ' + ruleSetResult);
-					console.log('ruleSet for ' + item.id + ' is ' + ruleSetResult);
+					utils.console('ruleSet for ' + item.id + ' is ' + ruleSetResult);
 					// Finally apply the show of hide action
 					if (item.visibility.inverted ? !ruleSetResult : ruleSetResult) {
 						operationShow();
@@ -1148,7 +1146,7 @@ export function launchSurvey(surveyData) {
 		 * provided item also must to be checked
 		 */
 		this.isItemVisible = function(item) {
-			return $('.ORItemId' + item.id).closest('.ORItemContainer.ORInvisible').length === 0;
+			return $(survey.container).find('.ORItemId' + item.id).closest('.ORItemContainer.ORInvisible').length === 0;
 		};
 
 		/**
@@ -1233,7 +1231,6 @@ export function launchSurvey(surveyData) {
 			var activeIndex = -1;
 
 			// Find the element wich has the Active token
-			console.log(survey.items)
 			$.each(survey.items, function(index, element) {
 				if ($(survey.container).find('.ORItemId' + this.id).hasClass('Active')) {
 					activeIndex = index;
