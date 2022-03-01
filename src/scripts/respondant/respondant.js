@@ -902,12 +902,13 @@ export function launchSurvey(surveyData) {
 					// Indentity operation for OR
 					var ruleSetResult = false;
 					// First, iterate in group rules (OR)
+					console.log("Processing visibility rules");
 					$.each(item.visibility.rules.map(function(rule, index) {
-
 						// Indentity operation for AND
 						var ruleResult = true;
 						// Then, evaluate each group (AND)
-						$.each(rule.ruleSet.map(function(value, id) {
+						$.each(Object.keys(rule.ruleSet).map(function(id) {
+							var value = rule.ruleSet[id]
 
 							if (typeof survey.responses[id] != 'undefined') {
 								// This means a response value has been recorded
@@ -942,7 +943,8 @@ export function launchSurvey(surveyData) {
 						ruleSetResult = ruleSetResult || value;
 					});
 
-					utils.console('ruleSet for ' + item.id + ' is ' + ruleSetResult);
+					// utils.console('ruleSet for ' + item.id + ' is ' + ruleSetResult);
+					console.log('ruleSet for ' + item.id + ' is ' + ruleSetResult);
 					// Finally apply the show of hide action
 					if (item.visibility.inverted ? !ruleSetResult : ruleSetResult) {
 						operationShow();
@@ -1231,8 +1233,9 @@ export function launchSurvey(surveyData) {
 			var activeIndex = -1;
 
 			// Find the element wich has the Active token
+			console.log(survey.items)
 			$.each(survey.items, function(index, element) {
-				if ($('.ORItemId' + this.id).hasClass('Active')) {
+				if ($(survey.container).find('.ORItemId' + this.id).hasClass('Active')) {
 					activeIndex = index;
 				}
 			});
@@ -1251,7 +1254,7 @@ export function launchSurvey(surveyData) {
 			}
 
 			// Finally return the element
-			return $('.ORItemId' + survey.items[itemOffset].id);
+			return $(survey.container).find('.ORItemId' + survey.items[itemOffset].id);
 		};
 
 		this.adjustContainerHeight = function(callback) {
@@ -1801,17 +1804,17 @@ function tryGetSurvey(surveyId) {
 		throw Error("There are no surveys created. First call 'launchSurvey'");
 	} else if (Object.keys(ORSurveys).length == 1) {
 		return ORSurveys[Object.keys(ORSurveys)[0]];
-	} else if (surveyId === undefined) {
+	} else if (typeof surveyId === "undefined") {
 		throw Error("surveyId was not provided. When there are more than 1 survey, it is required");
 	} else if (Object.keys(ORSurveys).indexOf(surveyId) < 0) {
-		throw Error(`surveyId ${surveyId} was not found`);
+		throw Error("surveyId " + surveyId + " was not found");
 	} else {
 		return ORSurveys[surveyId];
 	}
 }
 
 export function getResponses(surveyId) {
-	tryGetSurvey(surveyId).getResponses();
+	return tryGetSurvey(surveyId).getResponses();
 };
 
 export function resetResponses(surveyId) {
