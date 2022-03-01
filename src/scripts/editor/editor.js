@@ -1868,7 +1868,7 @@ function surveyEditor(events) {
 
 		// Bind the Reset rule action
 		$('#ResetSingleRuleButton').click(function () {
-			ORSurveyMain.resetResponses(testSurveyId)
+			OverResponse.respondant.resetResponses(testSurveyId)
 		})
 
 		// Show the dialog
