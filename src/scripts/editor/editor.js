@@ -1712,7 +1712,7 @@ function surveyEditor(events) {
 			testMode: true,
 			surveyId: 'surveyPreview' + utils.randomId(),
 			containerId: contentPlaceholder.attr('id'),
-			height: 350,
+			height: 290,
 			controlClass: 'form-control',
 			data: editor.getSurvey(),
 			animation: {
