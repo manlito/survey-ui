@@ -688,7 +688,10 @@ export function launchSurvey(surveyData) {
 
 			// Overwrite the container if it is inside a matrix
 			if (item.parentItemId != '0') {
-				container = container.appendTo(survey.contentItems.find('.ORItemId' + item.parentItemId).find('tr').eq(item.cell.y).children('td').eq(item.cell.x));
+				container = container.appendTo(survey.contentItems
+					.find('.ORItemId' + item.parentItemId)
+					.find('.ORTableRow').eq(item.cell.y)
+					.children('.ORTableCell').eq(item.cell.x));
 			} else {
 				container = container.appendTo(survey.contentItems);
 			}
@@ -819,11 +822,11 @@ export function launchSurvey(surveyData) {
 					};
 				case 'Matrix':
 					// Matrices don't have an UI equilavent. They only need to be rendered as classical tables
-					var tableObject = $('<table class="ORTable OR' + item.itemType + 'Table"></table>').appendTo(container);
+					var tableObject = $('<div class="ORTable OR' + item.itemType + 'Table"></div>').appendTo(container);
 					for (var row = 0; row < item.matrix.rows; ++row) {
-						var rowObject = $('<tr></tr>').appendTo(tableObject);
+						var rowObject = $('<div class="ORTableRow"></div>').appendTo(tableObject);
 						for (var col = 0; col < item.matrix.cols; ++col) {
-							var cellObject = $('<td></td>').appendTo(rowObject);
+							var cellObject = $('<div class="ORTableCell"></div>').appendTo(rowObject);
 							// Only matrices have dimension atribute
 							if (item.itemType == 'Matrix') {
 								if (item.matrix.widths[col].dimension > 0) {
@@ -1371,9 +1374,9 @@ export function launchSurvey(surveyData) {
 			}
 
 			// In the case of matrices, the TR container should be used
-			//if (typeof activeItem.data('item').parentItemdId != 'undefined' && activeItem.data('item').parentItemdId != '0') {
-				//activeItem = activeItem.closest('tr');
-			//}
+			if (typeof activeItem.data('item').parentItemId != 'undefined' && activeItem.data('item').parentItemId !== 0) {
+				activeItem = activeItem.closest('.ORTableRow');
+			}
 
 			// Get active item Height and relative Offset
 			var activeItemHeight = activeItem.outerHeight(true);

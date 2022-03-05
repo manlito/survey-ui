@@ -149,20 +149,22 @@
             clear: both;
         }
         .ORTable {
+            display: table;
             width: 100%;
             border-collapse: collapse;
             margin: 0;
-            td {
-                padding: 0;
-                margin: 0;
-                .ORItemContainer {
-                    margin-left: 0;
-                    margin-right: 0;
+            > .ORTableRow {
+                display: table-row;
+                > .ORTableCell {
+                    display: table-cell;
+                    padding: 0;
+                    margin: 0;
+                    vertical-align:middle;
+                    .ORItemContainer {
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
                 }
-            }
-            &.ORMatrixTable td {
-                border-bottom: 1px solid #ddd;
-                vertical-align:middle;
             }
         }
         .ORSurveyTitle {
