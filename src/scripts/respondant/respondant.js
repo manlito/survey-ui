@@ -684,7 +684,11 @@ export function launchSurvey(surveyData) {
 				parentItemId: '0'
 			}, item);
 
-			var container = $('<div class="ORItemContainer ORItemId' + item.id + ' Rounded5px ' + item.itemType + ' ' + item.layout  + ' ' + item.orientation + '"></div>');
+			var container = $('<div class="ORItemContainer ORItemId' + item.id + ' Rounded5px ' + item.itemType + '"></div>');
+			if (item.itemType != 'Intro' && item.itemType != 'Matrix'  && item.itemType != 'Group') {
+				// Add layout and orientation
+				container.addClass(item.layout, item.orientation);
+			}
 
 			// Overwrite the container if it is inside a matrix
 			if (item.parentItemId != '0') {
