@@ -2207,6 +2207,9 @@ function surveyEditor(events) {
 		// Container for fields in properties panel
 		var propertiesContainer = $("#Properties").children('.Fields').empty()
 
+		// Items that don't have a layout and other props common to virtual elements
+		var isVirtual = itemType == "Matrix" || itemType == "Group" || itemType == "Label"
+
 		// For all items, show the display rules selector
 		var layoutSelector = new ui.button({
 			id: 'DisplayRulesSelector',
@@ -2215,15 +2218,18 @@ function surveyEditor(events) {
 			text: itemData.visibility.rules.length > 0 ? tr(editorStrings['PROPERTIES_DISPLAY_RULES_EDIT'], itemData.visibility.rules.length) : editorStrings['PROPERTIES_DISPLAY_RULES_ADD'],
 			options: itemVisibilityOptions,
 			command: editor.handleEditDisplayRules,
+			class: isVirtual ? 'NoLayout' : undefined,
 			texturePositionY: -447
 		})
-		new ui.selector({
-			id: 'LayoutSelector',
-			container: propertiesContainer,
-			options: itemLayoutOptions,
-			label: editorStrings['PROPERTIES_LAYOUT'],
-			command: editor.handleLayoutSelect
-		}).setValue(itemData.layout, { skipEvents: true })
+		if (!isVirtual) {
+			new ui.selector({
+				id: 'LayoutSelector',
+				container: propertiesContainer,
+				options: itemLayoutOptions,
+				label: editorStrings['PROPERTIES_LAYOUT'],
+				command: editor.handleLayoutSelect
+			}).setValue(itemData.layout, { skipEvents: true })
+		}
 
 		if (itemGroup == 'Open') {
 			new ui.selector({
@@ -2241,7 +2247,7 @@ function surveyEditor(events) {
 			}).setValue(itemData.open.size, { skipEvents: true })
 		}
 
-		if (itemType != 'Matrix' && itemType != 'Label') {
+		if (!isVirtual) {
 			// The checkbox to mark fields as required
 			new ui.checkbox({
 				id: 'RequiredItem',
