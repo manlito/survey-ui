@@ -1377,10 +1377,12 @@ export function launchSurvey(surveyData) {
 				previousTarget.removeClass('ORShow').addClass('ORHide');
 			}
 
-			// In the case of matrices, the TR container should be used
-			if (typeof activeItem.data('item').parentItemId != 'undefined' && activeItem.data('item').parentItemId !== 0) {
+			// In the case of matrices, the TR container should be used instead
+			if (activeItem.data('item').itemType == "Matrix" && typeof activeItem.data('item').parentItemId != 'undefined' && activeItem.data('item').parentItemId !== 0) {
 				activeItem = activeItem.closest('.ORTableRow');
 			}
+			console.log(activeItem)
+			console.log(activeItem.position())
 
 			// Get active item Height and relative Offset
 			var activeItemHeight = activeItem.outerHeight(true);
