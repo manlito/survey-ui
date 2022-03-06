@@ -46,8 +46,6 @@ editorStrings['INSERT_NEW_ITEM_PASTE'] = "Click to paste here";
 editorStrings['PROPERTIES_FOR'] = "Properties for ";
 editorStrings['ITEM_'] = "Item";
 
-editorStrings['SURVEY_NAME'] = "Survey Name";
-
 editorStrings['SETTINGS_TITLE'] = "Survey Title";
 editorStrings['SETTINGS_INTRO_TEXT'] = "Introduction";
 editorStrings['SETTINGS_CLOSING_TEXT'] = "Closing";

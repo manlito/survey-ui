@@ -240,12 +240,6 @@ function surveyEditor(events) {
 		// Restore the editor area to its initial state
 		$('#SurveyEditorToolbar, #SurveyEdition').empty()
 
-		//		new ui.tooltip({
-		//			container: surveyNameContainer.find('input'),
-		//			text: UserUIStrings['TIP_SURVEY_NAME'],
-		//			position: 'top'
-		//		});
-
 		ui.toolbar({
 			'scrollable': true
 		})
