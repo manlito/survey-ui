@@ -1883,51 +1883,16 @@ function surveyEditor(events) {
 		var contentPlaceholder = editor.dialogs.publish.getContentPlaceholder()
 		contentPlaceholder.empty()
 
-		// Insert a friendly description
-		contentPlaceholder.append('<h4>' + editorStrings['PUBLISH_DESCRIPTION'] + '</h4>')
-
-		// The code the user should paste
-		function buildCode(samplingRate) {
-			return ''
-				+ '<script type="text/javascript">' + '' + '\r\n\t' + ''
-				+ (samplingRate !== '1.0' ? 'if(Math.random()<' + samplingRate + '){' : '')
-				+ '(function(s,u,r,v,e,y){e=window;y=document;y.write(\'<div id="\'+u+\'"/>\');e[s]={surveyId:r,containerId:u};' + '\r\n\t'
-				+ 'v=y.createElement(\'script\');v.async=1;v.src=\'//static.overresponse.com/scripts/respondant/respondant.js\';' + '\r\n\t'
-				+ 'y.getElementsByTagName(\'head\')[0].appendChild(v);})(\'ORSettings\', \'ORClientContainer\', \'' + survey.shortId + '\');'
-				+ (samplingRate !== '1.0' ? '}' : '') + '\r\n'
-				+ '</script>'
-		}
-
-		// Provide some shortcuts for embedding
-		var samplingOptions = ''
-		for (var i = 90; i > 0; i <= 10 ? i -= 2 : i -= 10) {
-			samplingOptions += '<option value="' + (i / 100.0) + '">' + i + '% ' + editorStrings['PUBLISH_SAMPLING_OF_VISITORS'] + '</option>'
-		}
-		var optionsTab = $(''
-			+ '<div class="PublishContainer"><form class="form-horizontal PublishOptions" role="form"><div class="form-group">'
-			+ '<label class="col-sm-3 control-label">' + editorStrings['PUBLISH_SAMPLING'] + '</label>'
-			+ '<div class="col-sm-5"><select class="form-control">'
-			+ '  <option value="1.0">' + editorStrings['PUBLISH_SAMPLING_ALL'] + '</option>'
-			+ samplingOptions
-			+ '</select></div>'
-			+ '</div></form></div>'
-			+ '').appendTo(contentPlaceholder)
-		var scriptContent = $('<div><div class="PublishContainer"><textarea class="CodePlaceholder form-control"></textarea></div></div>').appendTo(contentPlaceholder)
-		contentPlaceholder.append('<div><div class="PublishContainer DeveloperNote">' + editorStrings['PUBLISH_API_NOTE'] + ': <a href="//docs.overresponse.com/" target="_blank">docs.overresponse.com</a></div></div>')
-
-		// Bind the change survey rate for
-		optionsTab.find('select').on({
-			change: function () {
-				var newSamplingRate = $(this).val()
-				scriptContent.find('textarea').text(buildCode(newSamplingRate))
-			}
-		}).trigger('change')
-
-		contentPlaceholder.append('<h4>' + editorStrings['PUBLISH_DESCRIPTION_LINK'] + '</h4>')
+		// Link to su.rvey.me
+		contentPlaceholder.append('<h3><span class="PublishOption">1</span>' + editorStrings['PUBLISH_SHARE_A_LINK'] + '</h3>')
+		contentPlaceholder.append('<div><div class="PublishContainer">' + editorStrings['PUBLISH_SHARE_A_LINK_DESCRIPTION'] + '</div></div>')
 
 		var surveyLink = "https://su.rvey.me/" + survey.shortId
 		var linkContent = $('<div><div class="PublishContainer"><textarea class="CodePlaceholder PublishLink form-control">' + surveyLink + '</textarea></div></div>').appendTo(contentPlaceholder)
 		contentPlaceholder.append('<div><div class="PublishContainer">' + editorStrings['PUBLISH_TRY_SURVEY'] + ': <a href="' + surveyLink + '" target="_blank">' + surveyLink + '</a></div></div>')
+
+		contentPlaceholder.append('<h3><span class="PublishOption">2</span>' + editorStrings['PUBLISH_USE_API'] + '</h3>')
+		contentPlaceholder.append('<div><div class="PublishContainer">' + editorStrings['PUBLISH_USE_API_DESCRIPTION'] + ': <a href="//docs.overresponse.com/" target="_blank">docs.overresponse.com</a></h4>'+ '</div></div>')
 
 		// Select the text in the textarea when user clicks on it
 		$('.CodePlaceholder').on('click', function () {
