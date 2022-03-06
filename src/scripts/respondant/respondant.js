@@ -1569,10 +1569,14 @@ export function launchSurvey(surveyData) {
 					var activeItem = survey.contentItems.find('.ORItemContainer.Active');
 					// If this is invoked by an UIItem, get the caller to select
 					if (typeof event.caller !== 'undefined') {
-
 						previousTarget = $(event.caller).closest('.ORItemContainer');
-						// Get the next item
-						scrollTarget = selectNextItem(activeItem, previousTarget);
+						if (previousTarget.data('item').itemType.match(/Open/i)) {
+							// Disable autoscrolling for text input based
+							scrollTarget = false;
+						} else {
+							// Get the next item
+							scrollTarget = selectNextItem(activeItem, previousTarget);
+						}
 					} else {
 
 						if (activeItem.length > 0) {

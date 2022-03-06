@@ -1256,7 +1256,7 @@ export default function(jQueryObject, utils) {
 			var field = item.children('.ORInput').children('.InputField');
 			field.attr('value', newValue);
 			// Check if value assigned is other than the default
-			if (newValue != input.defaultValue) {
+			if (newValue != this.defaultValue) {
 				field.addClass('HasValue');
 			} else {
 				field.removeClass('HasValue');
@@ -1265,8 +1265,8 @@ export default function(jQueryObject, utils) {
 			if (!changeOptions.skipEvents) {
 				input.events.valueSet({
 					value: newValue,
-					caller: input.currentContainer, // Used to indicate which UIItem is invoking caller
-					relatedItemId: input.getItemId() // The Id of the related item
+					caller: this.currentContainer, // Used to indicate which UIItem is invoking caller
+					relatedItemId: this.getItemId() // The Id of the related item
 				});
 			}
 
@@ -1290,7 +1290,8 @@ export default function(jQueryObject, utils) {
 		}
 
 		// Add the InputItem class, and insert input text
-		item.addClass('InputItem').children('.ORInput').append('<input class="InputField ' + options.controlClass + '" id="Text' + options.id + '" ' + (typeof options.placeholder != 'undefined' ? 'placeholder="' + options.placeholder + '" ' : '' ) + ' type="text" />');
+		var target = this.item.addClass('InputItem').children('.ORInput')
+		this.currentContainer = $('<input class="InputField ' + options.controlClass + '" id="Text' + options.id + '" ' + (typeof options.placeholder != 'undefined' ? 'placeholder="' + options.placeholder + '" ' : '' ) + ' type="text" />').appendTo(target);
 
 		// Add the specified size
 		item.addClass(options.size);
@@ -1326,7 +1327,8 @@ export default function(jQueryObject, utils) {
 		$.extend(this, new ui.input(options));
 
 		// Add the InputItem class, and insert input text
-		this.item.removeClass('InputItem').addClass('TextAreaItem').children('.ORInput').empty().append('<textarea class="InputField ' + options.controlClass + '" id="TextArea' + options.id + '" placeholder="' + options.placeholder + '" />');
+		var target = this.item.removeClass('InputItem').addClass('TextAreaItem').children('.ORInput').empty()
+		this.currentContainer = $('<textarea class="InputField ' + options.controlClass + '" id="TextArea' + options.id + '" placeholder="' + options.placeholder + '" />').appendTo(target);
 
 		// Bind the on change handler (so we can store the new value)
 		this.item.find('textarea').on({
