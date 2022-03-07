@@ -43,9 +43,10 @@ editorStrings['INSERT_NEW_ITEM_PASTE'] = "Click to paste here";
 editorStrings['PROPERTIES_FOR'] = "Properties for ";
 editorStrings['ITEM_'] = "Item";
 
-editorStrings['SETTINGS_TITLE'] = "Survey Title";
-editorStrings['SETTINGS_INTRO_TEXT'] = "Introduction";
+editorStrings['SETTINGS_INTRO_TEXT'] = "Introduction (optional)";
+editorStrings['SETTINGS_INTRO_DESCRIPTION'] = "Intro allows showing users a message before they rendering the first question. It can used to ask users for participation.";
 editorStrings['SETTINGS_CLOSING_TEXT'] = "Closing";
+editorStrings['SETTINGS_CLOSING_DESCRIPTION'] = "Message to show when completing survey. If not set, a default thank you message will be displayed.";
 editorStrings['SETTINGS_ENABLE_SURVEY_PREVIEW'] = "Respondant may preview survey";
 editorStrings['SETTINGS_SCROLLING_MODE'] = "Scrolling Mode";
 editorStrings['SETTINGS_START_DATE'] = "Start delivery on";

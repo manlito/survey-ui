@@ -232,11 +232,6 @@ function surveyEditor(events) {
 			}
 		})
 
-		// Add a default title when there is no survey id defined
-		if (survey.id == '') {
-			//$scope.surveyName = utils.tr(surveyModel.title, (new Date()).toLocaleDateString());
-		}
-
 		// Restore the editor area to its initial state
 		$('#SurveyEditorToolbar, #SurveyEdition').empty()
 

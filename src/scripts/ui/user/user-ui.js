@@ -1322,23 +1322,16 @@ export default function(jQueryObject, utils) {
 			switch(tab) {
 				case 'Presentation':
 					var titleAndMessages = $('<div id="TitleAndMessagesPane"></div>').appendTo(content);
-					items.title = new ui.input({
-						id : 'SurveyTitle',
-						container : titleAndMessages,
-						label : EditorUIStrings['SETTINGS_TITLE'],
-						description : 'Description of the command',
-						controlClass : 'form-control'
-					});
 					items.introText = new ui.textEditor({
 						id : 'SurveyIntro',
 						container : titleAndMessages,
-						label : EditorUIStrings['SETTINGS_INTRO_TEXT'],
+						label : EditorUIStrings['SETTINGS_INTRO_TEXT'] + '. <small>' + EditorUIStrings['SETTINGS_INTRO_DESCRIPTION'] + '</small>',
 						description : 'Description of the command'
 					});
 					items.closingText = new ui.textEditor({
 						id : 'SurveyClosing',
 						container : titleAndMessages,
-						label : EditorUIStrings['SETTINGS_CLOSING_TEXT'],
+						label : EditorUIStrings['SETTINGS_CLOSING_TEXT'] + '. <small>' + EditorUIStrings['SETTINGS_CLOSING_DESCRIPTION'] + '</small>',
 						description : 'Description of the command'
 					});
 					break;

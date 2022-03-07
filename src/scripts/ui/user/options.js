@@ -7,11 +7,11 @@ var surveyStatusOptions = [
 	},
 	{
 		label : 'Suspend',
-		html : '<b>Suspend.</b>. Pause delivery.'
+		html : '<b>Suspend.</b> Pause delivery.'
 	},
 	{
 		label : 'Archive',
-		html : '<b>Archived.</b>. Survey is no longer active.'
+		html : '<b>Archived.</b> Survey is no longer active.'
 	}
 ];
 
