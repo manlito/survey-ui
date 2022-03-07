@@ -2147,7 +2147,10 @@ function surveyEditor(events) {
 
 		// Check the case, after undo or redo, that the selected item was removed
 		if (typeof $(item).data('itemData') == 'undefined') {
-			editor.selectItem(editor.board.find('.RenderedItem').last())
+			// Check that there are elements that can be selected
+			if (editor.board.find('.RenderedItem').length > 0)
+				editor.selectItem(editor.board.find('.RenderedItem').last())
+
 			return
 		}
 
