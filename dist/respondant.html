@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Respondant</title>
+  <style>
+    * {
+      font-family: 'IBM Plex Sans';
+    }
+  </style>
+</head>
+
+<body>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans">
+
+  <script type="text/javascript" src="respondant.js"></script>
+  <script type="text/javascript">
+    var surveyData = {
+      "testMode": true,
+      "surveyId": "surveyPreviewe3e14084691c91d4",
+      "containerId": "sampleSurvey",
+      "height": 300,
+      "data": {
+        "title": "No title",
+        "settings": {
+          "title": "",
+          "introText": "",
+          "closingText": "",
+          "status": "Deliver",
+          "enableItemRandomize": false,
+          "enableOptionRandomize": false,
+          "showHiddenItemsAsDisabled": false,
+          "scrollingMode": "Smart",
+          "visibleItems": 15,
+          "template": "Simple",
+          "theme": "Gray",
+          "maxResponsesPerDay": 0,
+          "maxResponsesTotal": 0,
+          "deliveryStrategy": "Inmediate"
+        },
+        "items": [
+          { "id": "683e0305232090ff", "itemType": "RadioText", "title": "RadioText", "parentItemId": 0, "visibility": { "inverted": false, "rules": [] }, "layout": "Right", "orientation": "Vertical", "required": false, "choice": { "options": [{ "label": "Mexico", "value": "", "extra": [], "order": 0 }, { "label": "Japon", "value": "", "extra": [], "order": 1 }, { "label": "Francia", "value": "", "extra": [], "order": 2 }], "multiSelect": false, "showIcon": true, "other": { "show": false, "label": "Other", "hint": "Please specify: " } }, "open": { "size": "Medium HMedium", "defaultText": "" }, "rate": { "levels": 3, "headerStyle": "EachCell", "headerLabels": "" }, "order": 0, "cell": { "x": 0, "y": 0 }, "label": "Que pais va a ganar la WorldCup" },
+          { "id": "67365728a338db41", "itemType": "BinaryYesNo", "title": "BinaryYesNo", "parentItemId": 0, "visibility": { "inverted": false, "rules": [] }, "layout": "Right", "orientation": "Horizontal", "required": false, "choice": { "options": [{ "label": "<div class=\"Icon ORFontIcon OptionYes\"></div><div class=\"IconText\">Yes</div>", "value": "", "extra": [], "order": 0 }, { "label": "<div class=\"Icon ORFontIcon OptionNo\"></div><div class=\"IconText\">No</div>", "value": "", "extra": [], "order": 1 }], "multiSelect": false, "showIcon": true, "other": { "show": false, "label": "Other", "hint": "Please specify: " } }, "open": { "size": "Medium HMedium", "defaultText": "" }, "rate": { "levels": 3, "headerStyle": "EachCell", "headerLabels": "" }, "order": 1, "cell": { "x": 0, "y": 0 }, "label": "Va a ser en penales?" }] }
+    };
+
+  </script>
+
+<p>Survey here <button onclick="javascript:OverResponse.respondant.launchSurvey(surveyData)">Show</button></p>
+<div id="sampleSurvey"></div>
+
+</body>
+
+</html>

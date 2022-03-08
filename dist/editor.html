@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Survey editor</title>
+</head>
+
+<body class="ORRespondant">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans">
+
+  <script type="text/javascript" src="scripts/3rd-party/jquery/jquery-1.12.4.js"></script>
+  <script type="text/javascript" src="vendor.js"></script>
+  <script type="text/javascript" src="respondant.js"></script>
+  <script type="text/javascript" src="editor.js"></script>
+
+  <link rel="stylesheet" href="vendor.css">
+
+  <div>
+    <div id="SurveyEditor">
+      <div class="ToolbarWrapper">
+        <div id="SurveyEditorToolbar"></div>
+      </div>
+      <div id="SurveyEditorBoard" ng-hide="showLogInMessageArea">
+        <div id="SurveyEdition"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var handleSave = function(surveyData, onSaveSuccess, onSaveError) {
+      console.log("Saving")
+      console.log(surveyData)
+      onSaveSuccess(surveyData);
+    }
+    var handleSurveyChanged = function() {
+      console.log("Survey changed")
+    }
+    var handleToggleAutoSave = function(isAutoSaveOn) {
+      console.log("Toggle Autosave to " + isAutoSaveOn)
+    }
+    OverResponse.editor.startSurveyEditor(undefined, {
+      onSurveyChanged: handleSurveyChanged,
+      onSurveySave: handleSave,
+      onToggleAutoSave: handleToggleAutoSave
+    });
+  </script>
+</body>
+
+</html>
