@@ -1,8 +1,8 @@
 {
-  "name": "survey-ui",
-  "version": "0.1.0",
+  "name": "@manlito/survey-ui",
+  "version": "0.1.1",
   "description": "UI components for surveys",
-  "main": "dist",
+  "main": "dist/respondant.js",
   "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -3,3 +3,6 @@ dist/scripts/
 dist/stylesheets/
 editor.html
 respondant.html
+src/
+assets/
+webpack.config.js
