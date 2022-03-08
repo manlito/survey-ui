@@ -506,7 +506,7 @@ export function launchSurvey(surveyData) {
 			// TODO: Show error warning when not loading this
 
 			// Load theme and template
-			ORGetStylesheet(serverAssets + '/stylesheets/respondant-'
+			ORGetStylesheet(serverAssets + '/respondant-'
 				+ survey.template.toLowerCase() + '-'
 				+ survey.theme.toLowerCase() + '.css');
 

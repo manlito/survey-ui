@@ -1200,7 +1200,6 @@ function surveyEditor(events) {
 		}
 	}
 
-
 	/**
 	 *
 	 * Activates or disables the timer that will trigger the save event
